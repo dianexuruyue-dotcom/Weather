@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weather - Your ultimate weather forecast app. Get accurate hourly weather, 7-day weather forecast, 30-day weather predictions, real-time temperature, precipitation data, wind speed, humidity, UV index and atmospheric pressure. Free weather app with precise weather radar and climate monitoring.">
+    <meta name="keywords" content="weather forecast, weather app, hourly weather, 7 day weather, 30 day weather prediction, weather radar, temperature forecast, precipitation, climate data, weather service, weather conditions, atmospheric pressure, humidity forecast, UV index, wind speed, weather alerts, local weather, weather tracking, meteorology, climate forecast">
+    <meta name="author" content="Weather App">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="EN">
+    <meta name="geo.region" content="US">
+    <meta name="geo.position" content="40.7128;-74.0060">
+    <meta name="ICBM" content="40.7128, -74.0060">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Weather - Accurate Weather Forecast App | Hourly & Long-term Predictions">
+    <meta property="og:description" content="Get precise weather forecasts with our advanced weather app. Track hourly weather changes, 7-day forecasts, and extended 30-day weather outlook with real-time climate data.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://weather.com">
+    <meta property="og:site_name" content="Weather App">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Weather - Professional Weather Forecast Service">
+    <meta name="twitter:description" content="Advanced weather forecasting with hourly updates, extended predictions, and comprehensive climate monitoring tools.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://weather.com">
+    
+    <title>Weather - Accurate Weather Forecast App | Hourly, 7-Day & 30-Day Weather Predictions</title>
+    
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html" class="home-link">
+                    <div class="weather-logo">
+                        <div class="sun-icon"></div>
+                        <div class="cloud-icon"></div>
+                    </div>
+                    <h1 class="brand-name">Weather</h1>
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search for cities, weather conditions, or locations..." aria-label="Search weather by city">
+                <button class="search-btn" aria-label="Search">🔍</button>
+            </div>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.weather.free.forecast.dailyweather&hl=en" class="app-download" target="_blank" rel="noopener">
+                <span class="google-play-icon"></span>
+                Get the App
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="current-weather">
+            <div class="location-info">
+                <h2 class="location-name">New York, NY</h2>
+                <div class="current-temp">72°F</div>
+                <div class="current-condition">Partly Cloudy with Light Breeze</div>
+            </div>
+            
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon">🌡️</div>
+                    <div class="detail-label">Feels Like Temperature</div>
+                    <div class="detail-value">75°F</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">💨</div>
+                    <div class="detail-label">Wind Speed</div>
+                    <div class="detail-value">8 mph</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-label">Humidity Level</div>
+                    <div class="detail-value">65%</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">☀️</div>
+                    <div class="detail-label">UV Index</div>
+                    <div class="detail-value">6</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">🌪️</div>
+                    <div class="detail-label">Atmospheric Pressure</div>
+                    <div class="detail-value">30.12</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="weather-section">
+            <h3 class="section-title">Hourly Weather Forecast</h3>
+            <p class="section-subtitle">Track temperature changes and precipitation probability for the past 6 hours and next 12 hours</p>
+            
+            <div class="hourly-container">
+                <div class="hourly-weather">
+                    <div class="hourly-item">
+                        <div class="hourly-time">6 hrs ago</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">68°</div>
+                        <div class="hourly-precipitation">0% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">5 hrs ago</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">69°</div>
+                        <div class="hourly-precipitation">0% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">4 hrs ago</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">70°</div>
+                        <div class="hourly-precipitation">5% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">3 hrs ago</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">71°</div>
+                        <div class="hourly-precipitation">10% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">2 hrs ago</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">71°</div>
+                        <div class="hourly-precipitation">15% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">1 hr ago</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">72°</div>
+                        <div class="hourly-precipitation">10% rain</div>
+                    </div>
+                    <div class="hourly-item" style="border: 3px solid #ff6b35;">
+                        <div class="hourly-time">Now</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">72°</div>
+                        <div class="hourly-precipitation">5% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">1 PM</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">75°</div>
+                        <div class="hourly-precipitation">0% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">2 PM</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">77°</div>
+                        <div class="hourly-precipitation">0% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">3 PM</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">78°</div>
+                        <div class="hourly-precipitation">15% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">4 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">76°</div>
+                        <div class="hourly-precipitation">70% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">5 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">74°</div>
+                        <div class="hourly-precipitation">85% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">6 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">72°</div>
+                        <div class="hourly-precipitation">80% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">7 PM</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">70°</div>
+                        <div class="hourly-precipitation">40% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">8 PM</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">69°</div>
+                        <div class="hourly-precipitation">20% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">9 PM</div>
+                        <div class="hourly-icon">🌙</div>
+                        <div class="hourly-temp">67°</div>
+                        <div class="hourly-precipitation">10% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">10 PM</div>
+                        <div class="hourly-icon">🌙</div>
+                        <div class="hourly-temp">65°</div>
+                        <div class="hourly-precipitation">5% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">11 PM</div>
+                        <div class="hourly-icon">🌙</div>
+                        <div class="hourly-temp">64°</div>
+                        <div class="hourly-precipitation">0% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">12 AM</div>
+                        <div class="hourly-icon">🌙</div>
+                        <div class="hourly-temp">62°</div>
+                        <div class="hourly-precipitation">0% rain</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="weather-section">
+            <h3 class="section-title">7-Day Weather Forecast</h3>
+            <p class="section-subtitle">Weekly weather outlook with detailed temperature and precipitation predictions</p>
+            
+            <div class="daily-forecast">
+                <div class="daily-item">
+                    <div class="day-name">Today</div>
+                    <div class="daily-icon">⛅</div>
+                    <div class="daily-desc">Partly Cloudy</div>
+                    <div class="temp-range">
+                        <span class="high-temp">78°</span> / <span class="low-temp">62°</span>
+                    </div>
+                </div>
+                <div class="daily-item">
+                    <div class="day-name">Tomorrow</div>
+                    <div class="daily-icon">🌧️</div>
+                    <div class="daily-desc">Light Rain Showers</div>
+                    <div class="temp-range">
+                        <span class="high-temp">74°</span> / <span class="low-temp">58°</span>
+                    </div>
+                </div>
+                <div class="daily-item">
+                    <div class="day-name">Thursday</div>
+                    <div class="daily-icon">⛅</div>
+                    <div class="daily-desc">Partly Cloudy</div>
+                    <div class="temp-range">
+                        <span class="high-temp">76°</span> / <span class="low-temp">60°</span>
+                    </div>
+                </div>
+                <div class="daily-item">
+                    <div class="day-name">Friday</div>
+                    <div class="daily-icon">☀️</div>
+                    <div class="daily-desc">Sunny Weather</div>
+                    <div class="temp-range">
+                        <span class="high-temp">82°</span> / <span class="low-temp">65°</span>
+                    </div>
+                </div>
+                <div class="daily-item">
+                    <div class="day-name">Saturday</div>
+                    <div class="daily-icon">☀️</div>
+                    <div class="daily-desc">Clear Skies</div>
+                    <div class="temp-range">
+                        <span class="high-temp">84°</span> / <span class="low-temp">67°</span>
+                    </div>
+                </div>
+                <div class="daily-item">
+                    <div class="day-name">Sunday</div>
+                    <div class="daily-icon">⛅</div>
+                    <div class="daily-desc">Partly Cloudy</div>
+                    <div class="temp-range">
+                        <span class="high-temp">80°</span> / <span class="low-temp">64°</span>
+                    </div>
+                </div>
+                <div class="daily-item">
+                    <div class="day-name">Monday</div>
+                    <div class="daily-icon">🌧️</div>
+                    <div class="daily-desc">Rain Showers</div>
+                    <div class="temp-range">
+                        <span class="high-temp">75°</span> / <span class="low-temp">59°</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="weather-section">
+            <h3 class="section-title">30-Day Extended Weather Forecast</h3>
+            <p class="section-subtitle">Long-term weather predictions and climate trends for comprehensive planning</p>
+            
+            <div class="extended-forecast">
+                <div class="extended-item">
+                    <div class="day-name">Days 1-3</div>
+                    <div class="daily-icon">⛅</div>
+                    <div class="daily-desc">Mixed Conditions</div>
+                    <div class="temp-range">
+                        <span class="high-temp">78°</span> / <span class="low-temp">58°</span>
+                    </div>
+                </div>
+                <div class="extended-item">
+                    <div class="day-name">Days 4-6</div>
+                    <div class="daily-icon">☀️</div>
+                    <div class="daily-desc">Sunny Period</div>
+                    <div class="temp-range">
+                        <span class="high-temp">83°</span> / <span class="low-temp">66°</span>
+                    </div>
+                </div>
+                <div class="extended-item">
+                    <div class="day-name">Days 7-10</div>
+                    <div class="daily-icon">🌧️</div>
+                    <div class="daily-desc">Rainy Season</div>
+                    <div class="temp-range">
+                        <span class="high-temp">75°</span> / <span class="low-temp">59°</span>
+                    </div>
+                </div>
+                
+                <div id="extended-days" class="hidden">
+                    <div class="extended-item">
+                        <div class="day-name">Days 11-14</div>
+                        <div class="daily-icon">⛅</div>
+                        <div class="daily-desc">Variable Clouds</div>
+                        <div class="temp-range">
+                            <span class="high-temp">77°</span> / <span class="low-temp">61°</span>
+                        </div>
+                    </div>
+                    <div class="extended-item">
+                        <div class="day-name">Days 15-18</div>
+                        <div class="daily-icon">☀️</div>
+                        <div class="daily-desc">Clear Weather</div>
+                        <div class="temp-range">
+                            <span class="high-temp">81°</span> / <span class="low-temp">64°</span>
+                        </div>
+                    </div>
+                    <div class="extended-item">
+                        <div class="day-name">Days 19-22</div>
+                        <div class="daily-icon">⛅</div>
+                        <div class="daily-desc">Partly Cloudy</div>
+                        <div class="temp-range">
+                            <span class="high-temp">79°</span> / <span class="low-temp">62°</span>
+                        </div>
+                    </div>
+                    <div class="extended-item">
+                        <div class="day-name">Days 23-26</div>
+                        <div class="daily-icon">🌧️</div>
+                        <div class="daily-desc">Intermittent Rain</div>
+                        <div class="temp-range">
+                            <span class="high-temp">74°</span> / <span class="low-temp">57°</span>
+                        </div>
+                    </div>
+                    <div class="extended-item">
+                        <div class="day-name">Days 27-30</div>
+                        <div class="daily-icon">☀️</div>
+                        <div class="daily-desc">Sunny Outlook</div>
+                        <div class="temp-range">
+                            <span class="high-temp">82°</span> / <span class="low-temp">65°</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="show-more-btn" id="showMoreBtn" onclick="toggleExtendedForecast()">
+                    Show Complete 30-Day Forecast
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-use.html">Terms of Use</a>
+            </div>
+            <div class="copyright">
+                © 2024 Weather App. All rights reserved. Accurate weather forecasting and climate data services.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

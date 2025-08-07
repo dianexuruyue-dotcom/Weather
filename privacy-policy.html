@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weather App Privacy Policy - Learn how we protect your personal data, location information, and weather preferences. Comprehensive privacy protection for weather forecast users.">
+    <meta name="keywords" content="weather app privacy policy, weather data privacy, location privacy, weather forecast privacy, meteorological data protection, climate app privacy">
+    <meta name="author" content="Weather App">
+    <meta name="robots" content="index, follow">
+    <title>Privacy Policy - Weather App | Protecting Your Weather Data & Personal Information</title>
+    <link rel="canonical" href="https://weather.com/privacy-policy">
+    
+    <link rel="stylesheet" href="assets/css/privacy.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #00cec9 100%);
+            min-height: 100vh;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
+        /* Header styles matching main site */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .home-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .weather-logo {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sun-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #fdcb6e, #e17055);
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            animation: rotate 10s linear infinite;
+        }
+
+        .sun-icon::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 10px;
+            background: #fdcb6e;
+            border-radius: 2px;
+            box-shadow: 
+                0 16px 0 #fdcb6e,
+                11px 11px 0 #fdcb6e,
+                16px 0 0 #fdcb6e,
+                11px -11px 0 #fdcb6e,
+                0 -16px 0 #fdcb6e,
+                -11px -11px 0 #fdcb6e,
+                -16px 0 0 #fdcb6e,
+                -11px 11px 0 #fdcb6e;
+        }
+
+        .cloud-icon {
+            position: absolute;
+            bottom: -8px;
+            right: -3px;
+            width: 20px;
+            height: 12px;
+            background: #74b9ff;
+            border-radius: 20px;
+            z-index: 3;
+        }
+
+        .cloud-icon::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 4px;
+            width: 12px;
+            height: 12px;
+            background: #74b9ff;
+            border-radius: 50%;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b35, #74b9ff, #00cec9);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #2d3436;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #74b9ff;
+        }
+
+        .app-download {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .google-play-icon {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .google-play-icon::before {
+            content: '▶';
+            color: #00b894;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .app-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 206, 201, 0.3);
+        }
+
+        /* Main content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .privacy-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #74b9ff, #0984e3);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: #636e72;
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #2d3436;
+            margin: 40px 0 20px 0;
+            border-bottom: 2px solid #74b9ff;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #636e72;
+            margin: 25px 0 15px 0;
+        }
+
+        p, li {
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.1), rgba(0, 206, 201, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #74b9ff;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(253, 203, 110, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #ff6b35;
+        }
+
+        /* Footer styles */
+        footer {
+            background: rgba(45, 52, 54, 0.95);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #74b9ff;
+        }
+
+        .copyright {
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .privacy-content {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html" class="home-link">
+                    <div class="weather-logo">
+                        <div class="sun-icon"></div>
+                        <div class="cloud-icon"></div>
+                    </div>
+                    <div class="brand-name">Weather</div>
+                </a>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="https://play.google.com/store/apps/details?id=com.weather.free.forecast.dailyweather&hl=en" class="app-download" target="_blank" rel="noopener">
+                    <span class="google-play-icon"></span>
+                    Get the App
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="privacy-content">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: December 15, 2024</p>
+
+            <div class="highlight">
+                <p><strong>Your Privacy Matters:</strong> Weather App is committed to protecting your personal information and weather data. This Privacy Policy explains how we collect, use, and safeguard your information when using our weather forecast services.</p>
+            </div>
+
+            <h2>1. Information We Collect</h2>
+            
+            <h3>1.1 Weather and Location Data</h3>
+            <ul>
+                <li><strong>Location Information:</strong> We collect your GPS coordinates and IP address to provide accurate local weather forecasts, hourly weather updates, and 7-day weather predictions.</li>
+                <li><strong>Weather Preferences:</strong> Your favorite cities, weather alert preferences, and forecast viewing history to enhance your weather tracking experience.</li>
+                <li><strong>Search Queries:</strong> Cities and locations you search for to improve our weather service recommendations.</li>
+            </ul>
+
+            <h3>1.2 Device and Usage Information</h3>
+            <ul>
+                <li>Device type, operating system, and browser information</li>
+                <li>App usage patterns and interaction with weather features</li>
+                <li>Time spent viewing hourly forecasts, 7-day weather, and 30-day weather predictions</li>
+                <li>Crash reports and performance data to improve our weather app functionality</li>
+            </ul>
+
+            <h3>1.3 Personal Information</h3>
+            <ul>
+                <li>Email address (if you create an account for personalized weather alerts)</li>
+                <li>Name and profile information (optional)</li>
+                <li>Communication preferences for weather notifications</li>
+            </ul>
+
+            <h2>2. How We Use Your Information</h2>
+
+            <h3>2.1 Weather Service Provision</h3>
+            <ul>
+                <li>Delivering accurate hourly weather forecasts and temperature predictions</li>
+                <li>Providing 7-day and 30-day extended weather outlook</li>
+                <li>Displaying real-time weather conditions, precipitation data, and atmospheric pressure</li>
+                <li>Calculating feels-like temperature, UV index, humidity levels, and wind speed information</li>
+            </ul>
+
+            <h3>2.2 Service Improvement</h3>
+            <ul>
+                <li>Enhancing weather prediction accuracy and climate data quality</li>
+                <li>Improving user interface for better weather data visualization</li>
+                <li>Developing new weather tracking features and forecast tools</li>
+                <li>Optimizing app performance for faster weather updates</li>
+            </ul>
+
+            <h3>2.3 Personalization</h3>
+            <ul>
+                <li>Customizing weather dashboard based on your location preferences</li>
+                <li>Sending relevant weather alerts and severe weather warnings</li>
+                <li>Recommending weather-related content and seasonal forecasts</li>
+            </ul>
+
+            <h2>3. Information Sharing and Disclosure</h2>
+
+            <div class="highlight">
+                <p><strong>We Do Not Sell Your Personal Information:</strong> Weather App never sells, rents, or trades your personal data, location information, or weather preferences to third parties.</p>
+            </div>
+
+            <h3>3.1 Service Providers</h3>
+            <p>We may share limited information with trusted partners who help us provide weather services:</p>
+            <ul>
+                <li>Meteorological data providers for accurate weather information</li>
+                <li>Cloud hosting services for app infrastructure</li>
+                <li>Analytics providers for app improvement (anonymized data only)</li>
+                <li>Customer support platforms for user assistance</li>
+            </ul>
+
+            <h3>3.2 Legal Requirements</h3>
+            <p>We may disclose information if required by law, court order, or to:</p>
+            <ul>
+                <li>Protect our users' safety during severe weather events</li>
+                <li>Prevent fraud or security threats</li>
+                <li>Comply with legal investigations</li>
+                <li>Enforce our Terms of Use</li>
+            </ul>
+
+            <h2>4. Data Security and Protection</h2>
+
+            <h3>4.1 Security Measures</h3>
+            <ul>
+                <li><strong>Encryption:</strong> All weather data and personal information transmitted through our app is encrypted using industry-standard SSL/TLS protocols.</li>
+                <li><strong>Secure Storage:</strong> Your data is stored on secure servers with multiple layers of protection.</li>
+                <li><strong>Access Controls:</strong> Only authorized personnel have access to user data, and only when necessary for service provision.</li>
+                <li><strong>Regular Security Audits:</strong> We conduct regular security assessments to identify and address potential vulnerabilities.</li>
+            </ul>
+
+            <h3>4.2 Data Retention</h3>
+            <ul>
+                <li>Weather search history: 90 days</li>
+                <li>Location data: Until you disable location services</li>
+                <li>Account information: Until account deletion</li>
+                <li>Usage analytics: 24 months (anonymized)</li>
+            </ul>
+
+            <h2>5. Your Privacy Rights and Controls</h2>
+
+            <h3>5.1 Location Privacy</h3>
+            <ul>
+                <li>You can disable location services at any time through your device settings</li>
+                <li>Choose to manually enter cities instead of using GPS location</li>
+                <li>Delete location history from your weather app settings</li>
+            </ul>
+
+            <h3>5.2 Data Access and Control</h3>
+            <ul>
+                <li><strong>Access:</strong> View all personal data we have collected about you</li>
+                <li><strong>Correction:</strong> Update or correct your personal information</li>
+                <li><strong>Deletion:</strong> Request deletion of your account and associated data</li>
+                <li><strong>Portability:</strong> Export your weather preferences and saved locations</li>
+                <li><strong>Opt-out:</strong> Unsubscribe from weather notifications and marketing communications</li>
+            </ul>
+
+            <h2>6. Cookies and Tracking Technologies</h2>
+            
+            <h3>6.1 Essential Cookies</h3>
+            <p>We use cookies necessary for weather app functionality:</p>
+            <ul>
+                <li>Remembering your location preferences</li>
+                <li>Maintaining your weather dashboard settings</li>
+                <li>Enabling secure login to your weather account</li>
+            </ul>
+
+            <h3>6.2 Analytics Cookies</h3>
+            <p>We use analytics cookies to understand how users interact with weather features and improve our services. You can opt-out through your browser settings.</p>
+
+            <h2>7. Third-Party Weather Services</h2>
+            
+            <p>Our weather app integrates with reputable meteorological services to provide accurate forecasts. These services may collect:</p>
+            <ul>
+                <li>Anonymous location data for weather modeling</li>
+                <li>General usage statistics for service improvement</li>
+                <li>Technical information for API functionality</li>
+            </ul>
+
+            <p>We carefully vet all weather data partners to ensure they meet our privacy standards.</p>
+
+            <h2>8. Children's Privacy</h2>
+            
+            <p>Weather App is designed for general audiences and does not knowingly collect personal information from children under 13. If we discover we have collected information from a child under 13, we will:</p>
+            <ul>
+                <li>Delete the information immediately</li>
+                <li>Not use the information for any purpose</li>
+                <li>Not share the information with third parties</li>
+            </ul>
+
+            <h2>9. International Data Transfers</h2>
+            
+            <p>Weather data and services may be processed in different countries to provide global weather coverage. We ensure adequate protection through:</p>
+            <ul>
+                <li>Standard contractual clauses for data protection</li>
+                <li>Adequacy decisions for data transfer safety</li>
+                <li>Certification schemes for international compliance</li>
+            </ul>
+
+            <h2>10. Changes to Privacy Policy</h2>
+            
+            <p>We may update this Privacy Policy to reflect changes in our weather services or legal requirements. When we make significant changes:</p>
+            <ul>
+                <li>We will notify you through the app or email</li>
+                <li>The updated policy will be posted on our website</li>
+                <li>You will have the opportunity to review changes before they take effect</li>
+                <li>Continued use of our weather services constitutes acceptance of the updated policy</li>
+            </ul>
+
+            <h2>11. Contact Information</h2>
+            
+            <div class="contact-info">
+                <p><strong>Questions about your privacy or this policy?</strong></p>
+                <p>We're here to help with any privacy concerns related to your weather data:</p>
+                <ul>
+                    <li><strong>Email:</strong> privacy@weather-app.com</li>
+                    <li><strong>Privacy Officer:</strong> privacy-officer@weather-app.com</li>
+                    <li><strong>Mailing Address:</strong><br>
+                        Weather App Privacy Team<br>
+                        123 Weather Plaza, Suite 456<br>
+                        Climate City, CC 12345<br>
+                        United States
+                    </li>
+                    <li><strong>Response Time:</strong> We respond to privacy inquiries within 48 hours</li>
+                </ul>
+            </div>
+
+            <h2>12. Regional Privacy Rights</h2>
+            
+            <h3>12.1 California Residents (CCPA)</h3>
+            <p>California residents have additional rights under the California Consumer Privacy Act:</p>
+            <ul>
+                <li>Right to know what personal information is collected and used</li>
+                <li>Right to delete personal information</li>
+                <li>Right to opt-out of the sale of personal information (we don't sell data)</li>
+                <li>Right to non-discrimination for exercising privacy rights</li>
+            </ul>
+
+            <h3>12.2 European Residents (GDPR)</h3>
+            <p>European residents have rights under the General Data Protection Regulation:</p>
+            <ul>
+                <li>Right to access your personal data</li>
+                <li>Right to rectify inaccurate data</li>
+                <li>Right to erasure ("right to be forgotten")</li>
+                <li>Right to restrict processing</li>
+                <li>Right to data portability</li>
+                <li>Right to object to processing</li>
+            </ul>
+
+            <div class="highlight">
+                <p><strong>Commitment to Weather Data Privacy:</strong> Weather App is dedicated to providing accurate weather forecasts while maintaining the highest standards of data privacy and security. Your trust in our weather services is fundamental to our mission of delivering reliable meteorological information.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-use.html">Terms of Use</a>
+            </div>
+            <div class="copyright">
+                © 2024 Weather App. All rights reserved. Protecting your weather data and personal privacy.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weather App Terms of Use - Legal terms and conditions for using our weather forecast service, hourly weather tracking, 7-day predictions, and meteorological data access.">
+    <meta name="keywords" content="weather app terms of use, weather service terms, weather forecast legal, meteorological service agreement, weather data usage terms, climate app conditions">
+    <meta name="author" content="Weather App">
+    <meta name="robots" content="index, follow">
+    <title>Terms of Use - Weather App | Weather Forecast Service Agreement & Legal Terms</title>
+    <link rel="canonical" href="https://weather.com/terms-of-use">
+    
+    <link rel="stylesheet" href="assets/css/terms.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 50%, #74b9ff 100%);
+            min-height: 100vh;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
+        /* Header styles matching main site */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .home-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .weather-logo {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sun-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #fdcb6e, #e17055);
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            animation: rotate 10s linear infinite;
+        }
+
+        .sun-icon::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 10px;
+            background: #fdcb6e;
+            border-radius: 2px;
+            box-shadow: 
+                0 16px 0 #fdcb6e,
+                11px 11px 0 #fdcb6e,
+                16px 0 0 #fdcb6e,
+                11px -11px 0 #fdcb6e,
+                0 -16px 0 #fdcb6e,
+                -11px -11px 0 #fdcb6e,
+                -16px 0 0 #fdcb6e,
+                -11px 11px 0 #fdcb6e;
+        }
+
+        .cloud-icon {
+            position: absolute;
+            bottom: -8px;
+            right: -3px;
+            width: 20px;
+            height: 12px;
+            background: #74b9ff;
+            border-radius: 20px;
+            z-index: 3;
+        }
+
+        .cloud-icon::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 4px;
+            width: 12px;
+            height: 12px;
+            background: #74b9ff;
+            border-radius: 50%;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b35, #74b9ff, #00cec9);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #2d3436;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #74b9ff;
+        }
+
+        .app-download {
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .google-play-icon {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .google-play-icon::before {
+            content: '▶';
+            color: #00b894;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .app-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 206, 201, 0.3);
+        }
+
+        /* Main content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .terms-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #fd79a8, #e84393);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: #636e72;
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #2d3436;
+            margin: 40px 0 20px 0;
+            border-bottom: 2px solid #fd79a8;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #636e72;
+            margin: 25px 0 15px 0;
+        }
+
+        p, li {
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(253, 121, 168, 0.1), rgba(253, 203, 110, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #fd79a8;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.1), rgba(0, 206, 201, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #74b9ff;
+        }
+
+        .warning {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(225, 112, 85, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #ff6b35;
+        }
+
+        /* Footer styles */
+        footer {
+            background: rgba(45, 52, 54, 0.95);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #74b9ff;
+        }
+
+        .copyright {
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .terms-content {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html" class="home-link">
+                    <div class="weather-logo">
+                        <div class="sun-icon"></div>
+                        <div class="cloud-icon"></div>
+                    </div>
+                    <div class="brand-name">Weather</div>
+                </a>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="https://play.google.com/store/apps/details?id=com.weather.free.forecast.dailyweather&hl=en" class="app-download" target="_blank" rel="noopener">
+                    <span class="google-play-icon"></span>
+                    Get the App
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="terms-content">
+            <h1>Terms of Use</h1>
+            <p class="last-updated">Last Updated: December 15, 2024</p>
+
+            <div class="highlight">
+                <p><strong>Welcome to Weather App:</strong> These Terms of Use govern your access to and use of our weather forecast services, including hourly weather tracking, 7-day weather predictions, 30-day climate outlook, and related meteorological features.</p>
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            
+            <p>By accessing or using Weather App services, including our website, mobile application, and weather forecasting tools, you agree to be bound by these Terms of Use and our Privacy Policy. If you do not agree to these terms, please do not use our weather services.</p>
+
+            <h3>1.1 Agreement Scope</h3>
+            <ul>
+                <li>These terms apply to all weather forecast features and services</li>
+                <li>Terms cover hourly weather data, extended predictions, and climate information</li>
+                <li>Agreement includes use of weather alerts and notification services</li>
+                <li>Terms extend to API access and weather data integration</li>
+            </ul>
+
+            <h2>2. Weather Service Description</h2>
+            
+            <h3>2.1 Core Weather Features</h3>
+            <ul>
+                <li><strong>Hourly Weather Forecasts:</strong> Past 6 hours and future 12-hour weather predictions with temperature and precipitation data</li>
+                <li><strong>7-Day Weather Predictions:</strong> Weekly weather outlook with detailed conditions and temperature ranges</li>
+                <li><strong>30-Day Extended Forecast:</strong> Long-term weather trends and climate patterns</li>
+                <li><strong>Real-time Weather Data:</strong> Current conditions including temperature, humidity, wind speed, UV index, and atmospheric pressure</li>
+                <li><strong>Weather Alerts:</strong> Severe weather warnings and meteorological notifications</li>
+            </ul>
+
+            <h3>2.2 Additional Features</h3>
+            <ul>
+                <li>Location-based weather tracking and GPS integration</li>
+                <li>Customizable weather dashboard and preference settings</li>
+                <li>Weather data export and sharing capabilities</li>
+                <li>Historical weather information and climate trends</li>
+            </ul>
+
+            <h2>3. User Responsibilities and Conduct</h2>
+            
+            <h3>3.1 Acceptable Use</h3>
+            <p>You agree to use Weather App services only for legitimate weather-related purposes:</p>
+            <ul>
+                <li>Personal weather planning and climate monitoring</li>
+                <li>Professional meteorological research and analysis</li>
+                <li>Educational purposes related to weather and climate</li>
+                <li>Commercial use in accordance with our licensing terms</li>
+            </ul>
+
+            <h3>3.2 Prohibited Activities</h3>
+            <p>You must not:</p>
+            <ul>
+                <li>Attempt to reverse engineer or extract weather algorithms</li>
+                <li>Use automated systems to scrape weather data without permission</li>
+                <li>Redistribute weather information for commercial gain without licensing</li>
+                <li>Interfere with or disrupt weather service infrastructure</li>
+                <li>Misrepresent yourself or provide false information</li>
+                <li>Violate any applicable laws or regulations</li>
+            </ul>
+
+            <h2>4. Weather Data Accuracy and Limitations</h2>
+            
+            <div class="warning">
+                <p><strong>Important Weather Disclaimer:</strong> Weather forecasting involves inherent uncertainties. While we strive to provide accurate meteorological information, weather predictions should be used as guidance only and not as the sole basis for critical decisions.</p>
+            </div>
+
+            <h3>4.1 Forecast Accuracy</h3>
+            <ul>
+                <li>Hourly forecasts are generally most accurate within 24-48 hours</li>
+                <li>7-day weather predictions have decreasing accuracy over time</li>
+                <li>30-day forecasts represent general climate trends, not specific daily conditions</li>
+                <li>Local weather conditions may vary from regional predictions</li>
+            </ul>
+
+            <h3>4.2 Data Sources</h3>
+            <ul>
+                <li>Weather information is compiled from multiple meteorological sources</li>
+                <li>We use government weather services, satellite data, and atmospheric models</li>
+                <li>Data processing involves statistical analysis and machine learning algorithms</li>
+                <li>Information is updated regularly based on new meteorological observations</li>
+            </ul>
+
+            <h2>5. User Accounts and Registration</h2>
+            
+            <h3>5.1 Account Creation</h3>
+            <ul>
+                <li>You may create an account to access personalized weather features</li>
+                <li>Provide accurate and complete information during registration</li>
+                <li>You are responsible for maintaining account security</li>
+                <li>Notify us immediately of any unauthorized account access</li>
+            </ul>
+
+            <h3>5.2 Account Responsibilities</h3>
+            <ul>
+                <li>Keep your login credentials secure and confidential</li>
+                <li>Update account information to ensure accurate weather delivery</li>
+                <li>You are liable for all activities under your account</li>
+                <li>Report suspicious account activity promptly</li>
+            </ul>
+
+            <h2>6. Intellectual Property Rights</h2>
+            
+            <h3>6.1 Weather App Ownership</h3>
+            <ul>
+                <li>Weather App owns all rights to our software, algorithms, and user interfaces</li>
+                <li>Our weather data processing methods and forecasting models are proprietary</li>
+                <li>Trademarks, logos, and branding elements are our exclusive property</li>
+                <li>User interface design and app functionality are protected by copyright</li>
+            </ul>
+
+            <h3>6.2 User Data Rights</h3>
+            <ul>
+                <li>You retain ownership of personal data you provide</li>
+                <li>Weather App has rights to process data as described in our Privacy Policy</li>
+                <li>User-generated content may be used to improve weather services</li>
+                <li>You grant us license to use feedback for service enhancement</li>
+            </ul>
+
+            <h2>7. Privacy and Data Protection</h2>
+            
+            <p>Your privacy is important to us. Our collection, use, and protection of your personal information and location data are governed by our <a href="privacy-policy.html" style="color: #74b9ff;">Privacy Policy</a>, which is incorporated into these terms by reference.</p>
+
+            <h3>7.1 Location Data</h3>
+            <ul>
+                <li>GPS location is used to provide accurate local weather forecasts</li>
+                <li>Location data is processed according to your privacy preferences</li>
+                <li>You can disable location services while still using weather features</li>
+            </ul>
+
+            <h2>8. Service Availability and Modifications</h2>
+            
+            <h3>8.1 Service Availability</h3>
+            <ul>
+                <li>We strive to provide continuous weather service availability</li>
+                <li>Scheduled maintenance may temporarily interrupt services</li>
+                <li>Weather data updates depend on external meteorological sources</li>
+                <li>Service availability may vary by geographic location</li>
+            </ul>
+
+            <h3>8.2 Service Changes</h3>
+            <ul>
+                <li>We may modify, suspend, or discontinue weather features</li>
+                <li>Updates may include new forecasting capabilities and improvements</li>
+                <li>Material changes will be communicated through the app or website</li>
+                <li>Continued use constitutes acceptance of service modifications</li>
+            </ul>
+
+            <h2>9. Limitation of Liability</h2>
+            
+            <div class="warning">
+                <p><strong>Critical Safety Notice:</strong> Weather App services are not intended for emergency or life-safety decisions. Always consult official weather services and authorities for severe weather warnings and emergency planning.</p>
+            </div>
+
+            <h3>9.1 Disclaimer of Warranties</h3>
+            <ul>
+                <li>Weather services are provided "as is" without warranties of any kind</li>
+                <li>We do not guarantee the accuracy, completeness, or timeliness of weather data</li>
+                <li>No warranty that services will be uninterrupted or error-free</li>
+                <li>Weather predictions are subject to atmospheric uncertainties</li>
+            </ul>
+
+            <h3>9.2 Limitation of Damages</h3>
+            <ul>
+                <li>Weather App shall not be liable for indirect, incidental, or consequential damages</li>
+                <li>Our liability is limited to the amount paid for weather services (if any)</li>
+                <li>No liability for damages resulting from weather forecast inaccuracies</li>
+                <li>Users assume risk when making decisions based on weather information</li>
+            </ul>
+
+            <h2>10. Indemnification</h2>
+            
+            <p>You agree to indemnify and hold Weather App harmless from any claims, damages, or expenses arising from:</p>
+            <ul>
+                <li>Your use or misuse of weather services</li>
+                <li>Violation of these Terms of Use</li>
+                <li>Infringement of third-party rights</li>
+                <li>Decisions made based on weather forecast information</li>
+            </ul>
+
+            <h2>11. Termination</h2>
+            
+            <h3>11.1 Termination by User</h3>
+            <ul>
+                <li>You may stop using weather services at any time</li>
+                <li>Delete your account through app settings or contact us</li>
+                <li>Account termination removes access to personalized features</li>
+            </ul>
+
+            <h3>11.2 Termination by Weather App</h3>
+            <ul>
+                <li>We may suspend or terminate accounts for Terms violations</li>
+                <li>Termination may occur for misuse of weather data or services</li>
+                <li>We reserve the right to discontinue services with reasonable notice</li>
+            </ul>
+
+            <h2>12. Governing Law and Dispute Resolution</h2>
+            
+            <h3>12.1 Applicable Law</h3>
+            <ul>
+                <li>These Terms are governed by the laws of [Jurisdiction]</li>
+                <li>Any disputes will be resolved in the courts of [Location]</li>
+                <li>International users subject to local laws and regulations</li>
+            </ul>
+
+            <h3>12.2 Dispute Resolution</h3>
+            <ul>
+                <li>First attempt to resolve disputes through direct communication</li>
+                <li>Mediation preferred before pursuing litigation</li>
+                <li>Arbitration may be required for certain types of claims</li>
+            </ul>
+
+            <h2>13. International Use and Export Controls</h2>
+            
+            <p>Weather App services are available globally, but users must comply with local laws:</p>
+            <ul>
+                <li>Respect data protection and privacy regulations in your jurisdiction</li>
+                <li>Comply with export control laws regarding weather data</li>
+                <li>Some features may be restricted in certain countries</li>
+                <li>Weather data accuracy may vary by geographic region</li>
+            </ul>
+
+            <h2>14. Accessibility and Accommodations</h2>
+            
+            <p>We strive to make weather information accessible to all users:</p>
+            <ul>
+                <li>Support for assistive technologies and screen readers</li>
+                <li>Alternative formats for weather data presentation</li>
+                <li>Compliance with accessibility standards and guidelines</li>
+                <li>Contact us for specific accessibility needs</li>
+            </ul>
+
+            <h2>15. Contact Information</h2>
+            
+            <div class="contact-info">
+                <p><strong>Questions about these Terms of Use?</strong></p>
+                <p>Contact our legal and customer support team:</p>
+                <ul>
+                    <li><strong>Email:</strong> terms@weather-app.com</li>
+                    <li><strong>Legal Department:</strong> legal@weather-app.com</li>
+                    <li><strong>Customer Support:</strong> support@weather-app.com</li>
+                    <li><strong>Mailing Address:</strong><br>
+                        Weather App Legal Department<br>
+                        123 Weather Plaza, Suite 789<br>
+                        Climate City, CC 12345<br>
+                        United States
+                    </li>
+                    <li><strong>Business Hours:</strong> Monday-Friday, 9 AM - 6 PM EST</li>
+                </ul>
+            </div>
+
+            <h2>16. Severability and Entire Agreement</h2>
+            
+            <h3>16.1 Severability</h3>
+            <ul>
+                <li>If any provision is found invalid, the remainder of these Terms continues in effect</li>
+                <li>Invalid provisions will be modified to achieve their intended purpose</li>
+                <li>Terms are designed to be enforceable to the fullest extent of the law</li>
+            </ul>
+
+            <h3>16.2 Entire Agreement</h3>
+            <ul>
+                <li>These Terms, together with our Privacy Policy, constitute the entire agreement</li>
+                <li>Supersedes all prior agreements and understandings</li>
+                <li>Modifications must be made in writing and agreed to by Weather App</li>
+            </ul>
+
+            <h2>17. Updates to Terms</h2>
+            
+            <p>We may update these Terms of Use to reflect changes in our weather services or legal requirements:</p>
+            <ul>
+                <li>Significant changes will be communicated through the app or email notifications</li>
+                <li>Updated Terms will be posted on our website with the effective date</li>
+                <li>Continued use of weather services indicates acceptance of updated Terms</li>
+                <li>You may terminate your account if you disagree with changes</li>
+            </ul>
+
+            <div class="highlight">
+                <p><strong>Commitment to Weather Service Excellence:</strong> Weather App is dedicated to providing accurate, reliable weather forecasting while maintaining transparent terms of service. We appreciate your trust in our meteorological services and commitment to responsible weather data usage.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-use.html">Terms of Use</a>
+            </div>
+            <div class="copyright">
+                © 2024 Weather App. All rights reserved. Professional weather forecasting services with transparent terms.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
