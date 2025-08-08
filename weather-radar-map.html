@@ -66,11 +66,6 @@
                 </a>
             </div>
             
-            <div class="search-container">
-                <input type="text" class="search-box" placeholder="搜索地区雷达图" aria-label="搜索地区天气雷达图">
-                <button class="search-btn" aria-label="搜索">🔍</button>
-            </div>
-            
             <nav class="main-nav" role="navigation" aria-label="Main Navigation">
                 <a href="index.html" class="nav-item">
                     <div class="nav-icon">🏠</div>
@@ -84,17 +79,9 @@
                     <div class="nav-icon">🌬️</div>
                     <span>Air Quality</span>
                 </a>
-                <a href="uv-index.html" class="nav-item">
-                    <div class="nav-icon">☀️</div>
-                    <span>UV Index</span>
-                </a>
-                <a href="weather-alert.html" class="nav-item">
-                    <div class="nav-icon">⚠️</div>
-                    <span>Alerts</span>
-                </a>
                 <a href="about.html" class="nav-item">
                     <div class="nav-icon">ℹ️</div>
-                    <span>About</span>
+                    <span>About Us</span>
                 </a>
             </nav>
         </div>
@@ -111,6 +98,20 @@
     </nav>
 
     <main class="container">
+        <!-- Location Display Section -->
+        <section class="current-location-section">
+            <div class="location-display">
+                <div class="location-loading">
+                    <div class="loading-icon">🌍</div>
+                    <span>Detecting your location...</span>
+                </div>
+                <div class="location-info" style="display: none;">
+                    <h2 class="current-location">New York, NY</h2>
+                    <p class="location-subtitle">Weather Radar Map</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Page Header -->
         <section class="page-header">
             <h1>天气雷达图</h1>
@@ -415,8 +416,46 @@
                 © 2024 Weather App. 天气雷达图专业服务 - 精准气象雷达监测数据
             </div>
         </div>
-    </nav>
+    </footer>
 
     <script src="assets/js/main.js"></script>
+    
+    <!-- Page-specific location detection -->
+    <script>
+        // Auto-detect location for weather radar page
+        document.addEventListener('DOMContentLoaded', function() {
+            const locationLoading = document.querySelector('.location-loading');
+            const locationInfo = document.querySelector('.location-info');
+            const currentLocation = document.querySelector('.current-location');
+            
+            async function detectLocationForRadar() {
+                try {
+                    const response = await fetch('https://ipapi.co/json/');
+                    const data = await response.json();
+                    
+                    const cityName = data.city || 'Unknown Location';
+                    const region = data.region || data.country_name || '';
+                    
+                    // Update display
+                    currentLocation.textContent = `${cityName}, ${region}`;
+                    
+                    // Hide loading, show location info
+                    locationLoading.style.display = 'none';
+                    locationInfo.style.display = 'block';
+                    
+                    console.log('Location detected for weather radar:', cityName, region);
+                } catch (error) {
+                    console.warn('Could not detect location:', error);
+                    // Fallback to default
+                    currentLocation.textContent = 'New York, NY';
+                    locationLoading.style.display = 'none';
+                    locationInfo.style.display = 'block';
+                }
+            }
+            
+            // Start location detection
+            detectLocationForRadar();
+        });
+    </script>
 </body>
 </html>

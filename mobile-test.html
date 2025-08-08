@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Layout Test - 7-Day Forecast</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Override for testing mobile layout */
+        body { background: #f0f0f0; padding: 20px; }
+        .container { max-width: 375px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>7-Day Weather Forecast - Mobile Layout</h2>
+        
+        <section class="weather-section">
+            <div class="daily-forecast">
+                <div class="daily-item">
+                    <div class="day-name">Today</div>
+                    <div class="daily-icon">⛅</div>
+                    <div class="daily-desc">Partly Cloudy</div>
+                    <div class="temp-range">
+                        <span class="high-temp">85°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / 
+                        <span class="low-temp">64°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
+                    </div>
+                    <div class="daily-details">
+                        <span class="wind">SE Wind 3 mph</span>
+                        <span class="precipitation">30% Rain</span>
+                    </div>
+                </div>
+                
+                <div class="daily-item">
+                    <div class="day-name">Tomorrow</div>
+                    <div class="daily-icon">🌧️</div>
+                    <div class="daily-desc">Light Rain Showers</div>
+                    <div class="temp-range">
+                        <span class="high-temp">75°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / 
+                        <span class="low-temp">58°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
+                    </div>
+                    <div class="daily-details">
+                        <span class="wind">N Wind 4 mph</span>
+                        <span class="precipitation">75% Rain</span>
+                    </div>
+                </div>
+                
+                <div class="daily-item">
+                    <div class="day-name">Thursday</div>
+                    <div class="daily-icon">☀️</div>
+                    <div class="daily-desc">Sunny Weather</div>
+                    <div class="temp-range">
+                        <span class="high-temp">81°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / 
+                        <span class="low-temp">59°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
+                    </div>
+                    <div class="daily-details">
+                        <span class="wind">W Wind 2 mph</span>
+                        <span class="precipitation">5% Rain</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

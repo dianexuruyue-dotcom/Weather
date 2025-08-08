@@ -29,7 +29,6 @@
     
     <title>Weather - Accurate Weather Forecast App | Hourly, 7-Day & 30-Day Weather Predictions</title>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -58,17 +57,9 @@
                     <div class="nav-icon">🌬️</div>
                     <span>Air Quality</span>
                 </a>
-                <a href="uv-index.html" class="nav-item">
-                    <div class="nav-icon">☀️</div>
-                    <span>UV Index</span>
-                </a>
-                <a href="weather-alert.html" class="nav-item">
-                    <div class="nav-icon">⚠️</div>
-                    <span>Alerts</span>
-                </a>
                 <a href="about.html" class="nav-item">
                     <div class="nav-icon">ℹ️</div>
-                    <span>About</span>
+                    <span>About Us</span>
                 </a>
             </nav>
         </div>
@@ -90,7 +81,10 @@
                     <span class="location-loading">🌍 Detecting your location...</span>
                     <span class="location-text" style="display: none;">New York, NY</span>
                 </h2>
-                <div class="current-temp">72°F</div>
+                <div class="current-temp">72°F<div class="temperature-toggle">
+                    <span class="temp-unit" data-unit="celsius">°C</span>
+                    <span class="temp-unit active" data-unit="fahrenheit">°F</span>
+                </div></div>
                 <div class="current-condition">Partly Cloudy with Light Breeze</div>
             </div>
             
@@ -98,7 +92,10 @@
                 <div class="detail-card">
                     <div class="detail-icon">🌡️</div>
                     <div class="detail-label">Feels Like Temperature</div>
-                    <div class="detail-value">75°F</div>
+                    <div class="detail-value">75°F<div class="temperature-toggle">
+                        <span class="temp-unit" data-unit="celsius">°C</span>
+                        <span class="temp-unit active" data-unit="fahrenheit">°F</span>
+                    </div></div>
                 </div>
                 <div class="detail-card">
                     <div class="detail-icon">💨</div>
@@ -150,18 +147,134 @@
             </div>
         </section>
 
-        <!-- Hourly Weather Forecast with Chart -->
+        <!-- Hourly Weather Forecast -->
         <section class="weather-section">
             <h3 class="section-title">Hourly Weather Forecast</h3>
-            <p class="section-subtitle">Track temperature changes and precipitation probability with interactive charts</p>
+            <p class="section-subtitle">Detailed hourly weather conditions for the next 12 hours</p>
             
-            <div class="chart-controls">
-                <button class="chart-btn active" data-chart="temperature">Temperature</button>
-                <button class="chart-btn" data-chart="precipitation">Precipitation</button>
-            </div>
-            
-            <div class="hourly-chart-container">
-                <canvas id="hourlyWeatherChart"></canvas>
+            <div class="hourly-container">
+                <div class="hourly-weather">
+                    <div class="hourly-item current" style="border: 3px solid #ff6b35;">
+                        <div class="hourly-time">Now</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">72°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">30%</div>
+                        <div class="hourly-wind">SE 3mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">1 PM</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">75°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">10%</div>
+                        <div class="hourly-wind">SE 4mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">2 PM</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">78°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">5%</div>
+                        <div class="hourly-wind">S 5mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">3 PM</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">82°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">0%</div>
+                        <div class="hourly-wind">S 6mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">4 PM</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">85°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">15%</div>
+                        <div class="hourly-wind">SW 7mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">5 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">81°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">70%</div>
+                        <div class="hourly-wind">SW 8mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">6 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">77°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">80%</div>
+                        <div class="hourly-wind">W 6mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">7 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">74°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">65%</div>
+                        <div class="hourly-wind">W 5mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">8 PM</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">72°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">25%</div>
+                        <div class="hourly-wind">W 4mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">9 PM</div>
+                        <div class="hourly-icon">🌙</div>
+                        <div class="hourly-temp">69°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">10%</div>
+                        <div class="hourly-wind">NW 3mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">10 PM</div>
+                        <div class="hourly-icon">🌙</div>
+                        <div class="hourly-temp">66°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">5%</div>
+                        <div class="hourly-wind">NW 2mph</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">11 PM</div>
+                        <div class="hourly-icon">🌙</div>
+                        <div class="hourly-temp">64°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                        <div class="hourly-precipitation">0%</div>
+                        <div class="hourly-wind">N 1mph</div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -249,7 +362,13 @@
                     <div class="daily-icon">⛅</div>
                     <div class="daily-desc">Partly Cloudy</div>
                     <div class="temp-range">
-                        <span class="high-temp">78°</span> / <span class="low-temp">62°</span>
+                        <span class="high-temp">78°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / <span class="low-temp">62°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
                     </div>
                 </div>
                 <div class="daily-item">
@@ -257,7 +376,13 @@
                     <div class="daily-icon">🌧️</div>
                     <div class="daily-desc">Light Rain Showers</div>
                     <div class="temp-range">
-                        <span class="high-temp">74°</span> / <span class="low-temp">58°</span>
+                        <span class="high-temp">74°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / <span class="low-temp">58°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
                     </div>
                 </div>
                 <div class="daily-item">
@@ -265,7 +390,13 @@
                     <div class="daily-icon">⛅</div>
                     <div class="daily-desc">Partly Cloudy</div>
                     <div class="temp-range">
-                        <span class="high-temp">76°</span> / <span class="low-temp">60°</span>
+                        <span class="high-temp">76°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / <span class="low-temp">60°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
                     </div>
                 </div>
                 <div class="daily-item">
@@ -273,7 +404,13 @@
                     <div class="daily-icon">☀️</div>
                     <div class="daily-desc">Sunny Weather</div>
                     <div class="temp-range">
-                        <span class="high-temp">82°</span> / <span class="low-temp">65°</span>
+                        <span class="high-temp">82°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / <span class="low-temp">65°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
                     </div>
                 </div>
                 <div class="daily-item">
@@ -281,7 +418,13 @@
                     <div class="daily-icon">☀️</div>
                     <div class="daily-desc">Clear Skies</div>
                     <div class="temp-range">
-                        <span class="high-temp">84°</span> / <span class="low-temp">67°</span>
+                        <span class="high-temp">84°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / <span class="low-temp">67°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
                     </div>
                 </div>
                 <div class="daily-item">
@@ -289,7 +432,13 @@
                     <div class="daily-icon">⛅</div>
                     <div class="daily-desc">Partly Cloudy</div>
                     <div class="temp-range">
-                        <span class="high-temp">80°</span> / <span class="low-temp">64°</span>
+                        <span class="high-temp">80°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / <span class="low-temp">64°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
                     </div>
                 </div>
                 <div class="daily-item">
@@ -297,7 +446,13 @@
                     <div class="daily-icon">🌧️</div>
                     <div class="daily-desc">Rain Showers</div>
                     <div class="temp-range">
-                        <span class="high-temp">75°</span> / <span class="low-temp">59°</span>
+                        <span class="high-temp">75°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span> / <span class="low-temp">59°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></span>
                     </div>
                 </div>
             </div>
@@ -386,8 +541,20 @@
             <h3 class="section-title">Popular Cities</h3>
             <p class="section-subtitle">Discover weather conditions in top travel destinations worldwide</p>
             
-            <div class="popular-cities">
-                <div class="city-item" data-city="New York" data-country="USA" data-temp="72" data-condition="Partly Cloudy" data-icon="⛅" 
+            <!-- Region Navigation Tabs -->
+            <div class="region-tabs">
+                <button class="region-tab active" data-region="all">🌍 All</button>
+                <button class="region-tab" data-region="north-america">🇺🇸 North America</button>
+                <button class="region-tab" data-region="europe">🇪🇺 Europe</button>
+                <button class="region-tab" data-region="asia">🌏 Asia</button>
+                <button class="region-tab" data-region="middle-east-africa">🌍 Middle East & Africa</button>
+                <button class="region-tab" data-region="oceania-americas">🌎 Oceania & Americas</button>
+            </div>
+            
+            <!-- All Cities Container -->
+            <div class="popular-cities active" data-region="all">
+                <!-- North America Cities -->
+                <div class="city-item" data-city="New York" data-country="USA" data-temp="72" data-condition="Partly Cloudy" data-icon="⛅" data-region-group="north-america"
                      data-alert-type="rain" data-alert-icon="🌧️" data-alert-title="Rain Alert" 
                      data-alert-message="Light to moderate rainfall expected between 2 PM - 6 PM today. Consider carrying an umbrella.">
                     <div class="city-info">
@@ -396,11 +563,48 @@
                     </div>
                     <div class="city-weather">
                         <div class="city-icon">⛅</div>
-                        <div class="city-temp">72°</div>
+                        <div class="city-temp">72°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
                     </div>
                 </div>
 
-                <div class="city-item" data-city="London" data-country="UK" data-temp="64" data-condition="Light Rain" data-icon="🌧️"
+                <div class="city-item" data-city="Los Angeles" data-country="USA" data-temp="78" data-condition="Sunny" data-icon="☀️" data-region-group="north-america">
+                    <div class="city-info">
+                        <div class="city-name">Los Angeles</div>
+                        <div class="city-country">USA</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">78°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Miami" data-country="USA" data-temp="82" data-condition="Partly Cloudy" data-icon="⛅" data-region-group="north-america">
+                    <div class="city-info">
+                        <div class="city-name">Miami</div>
+                        <div class="city-country">USA</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">82°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Vancouver" data-country="Canada" data-temp="61" data-condition="Rainy" data-icon="🌧️" data-region-group="north-america">
+                    <div class="city-info">
+                        <div class="city-name">Vancouver</div>
+                        <div class="city-country">Canada</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌧️</div>
+                        <div class="city-temp">61°</div>
+                    </div>
+                </div>
+
+                <!-- Europe Cities -->
+                <div class="city-item" data-city="London" data-country="UK" data-temp="64" data-condition="Light Rain" data-icon="🌧️" data-region-group="europe"
                      data-alert-type="fog" data-alert-icon="🌫️" data-alert-title="Fog Advisory" 
                      data-alert-message="Dense fog expected during morning hours. Visibility may be reduced to less than 100 meters. Drive carefully.">
                     <div class="city-info">
@@ -413,7 +617,7 @@
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Paris" data-country="France" data-temp="68" data-condition="Sunny" data-icon="☀️"
+                <div class="city-item" data-city="Paris" data-country="France" data-temp="68" data-condition="Sunny" data-icon="☀️" data-region-group="europe"
                      data-alert-type="none" data-alert-icon="" data-alert-title="" data-alert-message="">
                     <div class="city-info">
                         <div class="city-name">Paris</div>
@@ -425,7 +629,52 @@
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Tokyo" data-country="Japan" data-temp="75" data-condition="Clear" data-icon="☀️"
+                <div class="city-item" data-city="Rome" data-country="Italy" data-temp="73" data-condition="Sunny" data-icon="☀️" data-region-group="europe">
+                    <div class="city-info">
+                        <div class="city-name">Rome</div>
+                        <div class="city-country">Italy</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">73°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Barcelona" data-country="Spain" data-temp="76" data-condition="Sunny" data-icon="☀️" data-region-group="europe">
+                    <div class="city-info">
+                        <div class="city-name">Barcelona</div>
+                        <div class="city-country">Spain</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">76°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Amsterdam" data-country="Netherlands" data-temp="63" data-condition="Cloudy" data-icon="☁️" data-region-group="europe">
+                    <div class="city-info">
+                        <div class="city-name">Amsterdam</div>
+                        <div class="city-country">Netherlands</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☁️</div>
+                        <div class="city-temp">63°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Berlin" data-country="Germany" data-temp="66" data-condition="Partly Cloudy" data-icon="⛅" data-region-group="europe">
+                    <div class="city-info">
+                        <div class="city-name">Berlin</div>
+                        <div class="city-country">Germany</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">66°</div>
+                    </div>
+                </div>
+
+                <!-- Asia Cities -->
+                <div class="city-item" data-city="Tokyo" data-country="Japan" data-temp="75" data-condition="Clear" data-icon="☀️" data-region-group="asia"
                      data-alert-type="earthquake" data-alert-icon="🟡" data-alert-title="Earthquake Advisory" 
                      data-alert-message="Minor seismic activity detected. No immediate danger, but stay alert for aftershocks.">
                     <div class="city-info">
@@ -438,33 +687,29 @@
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Sydney" data-country="Australia" data-temp="71" data-condition="Partly Cloudy" data-icon="⛅"
-                     data-alert-type="fire" data-alert-icon="🔥" data-alert-title="Fire Weather Warning" 
-                     data-alert-message="High fire danger due to strong winds and low humidity. Avoid outdoor activities that could spark fires.">
+                <div class="city-item" data-city="Seoul" data-country="South Korea" data-temp="69" data-condition="Clear" data-icon="☀️" data-region-group="asia">
                     <div class="city-info">
-                        <div class="city-name">Sydney</div>
-                        <div class="city-country">Australia</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">⛅</div>
-                        <div class="city-temp">71°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Dubai" data-country="UAE" data-temp="95" data-condition="Sunny" data-icon="☀️"
-                     data-alert-type="heat" data-alert-icon="🌡️" data-alert-title="Extreme Heat Warning" 
-                     data-alert-message="Temperatures exceeding 95°F (35°C). Avoid prolonged outdoor exposure. Stay hydrated and seek shade.">
-                    <div class="city-info">
-                        <div class="city-name">Dubai</div>
-                        <div class="city-country">UAE</div>
+                        <div class="city-name">Seoul</div>
+                        <div class="city-country">South Korea</div>
                     </div>
                     <div class="city-weather">
                         <div class="city-icon">☀️</div>
-                        <div class="city-temp">95°</div>
+                        <div class="city-temp">69°</div>
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Singapore" data-country="Singapore" data-temp="84" data-condition="Thunderstorms" data-icon="⛈️"
+                <div class="city-item" data-city="Hong Kong" data-country="Hong Kong" data-temp="79" data-condition="Humid" data-icon="🌫️" data-region-group="asia">
+                    <div class="city-info">
+                        <div class="city-name">Hong Kong</div>
+                        <div class="city-country">Hong Kong</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌫️</div>
+                        <div class="city-temp">79°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Singapore" data-country="Singapore" data-temp="84" data-condition="Thunderstorms" data-icon="⛈️" data-region-group="asia"
                      data-alert-type="storm" data-alert-icon="⛈️" data-alert-title="Thunderstorm Warning" 
                      data-alert-message="Severe thunderstorms with heavy rain and strong winds expected. Stay indoors and avoid travel.">
                     <div class="city-info">
@@ -477,7 +722,7 @@
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Bangkok" data-country="Thailand" data-temp="88" data-condition="Hot" data-icon="🌡️"
+                <div class="city-item" data-city="Bangkok" data-country="Thailand" data-temp="88" data-condition="Hot" data-icon="🌡️" data-region-group="asia"
                      data-alert-type="heat" data-alert-icon="🌡️" data-alert-title="Heat Advisory" 
                      data-alert-message="High temperatures and humidity. Heat index may reach dangerous levels. Stay cool and hydrated.">
                     <div class="city-info">
@@ -490,128 +735,7 @@
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Rome" data-country="Italy" data-temp="73" data-condition="Sunny" data-icon="☀️">
-                    <div class="city-info">
-                        <div class="city-name">Rome</div>
-                        <div class="city-country">Italy</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">☀️</div>
-                        <div class="city-temp">73°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Barcelona" data-country="Spain" data-temp="76" data-condition="Sunny" data-icon="☀️">
-                    <div class="city-info">
-                        <div class="city-name">Barcelona</div>
-                        <div class="city-country">Spain</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">☀️</div>
-                        <div class="city-temp">76°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Amsterdam" data-country="Netherlands" data-temp="63" data-condition="Cloudy" data-icon="☁️">
-                    <div class="city-info">
-                        <div class="city-name">Amsterdam</div>
-                        <div class="city-country">Netherlands</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">☁️</div>
-                        <div class="city-temp">63°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Istanbul" data-country="Turkey" data-temp="70" data-condition="Partly Cloudy" data-icon="⛅">
-                    <div class="city-info">
-                        <div class="city-name">Istanbul</div>
-                        <div class="city-country">Turkey</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">⛅</div>
-                        <div class="city-temp">70°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Los Angeles" data-country="USA" data-temp="78" data-condition="Sunny" data-icon="☀️">
-                    <div class="city-info">
-                        <div class="city-name">Los Angeles</div>
-                        <div class="city-country">USA</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">☀️</div>
-                        <div class="city-temp">78°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Miami" data-country="USA" data-temp="82" data-condition="Partly Cloudy" data-icon="⛅">
-                    <div class="city-info">
-                        <div class="city-name">Miami</div>
-                        <div class="city-country">USA</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">⛅</div>
-                        <div class="city-temp">82°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Hong Kong" data-country="Hong Kong" data-temp="79" data-condition="Humid" data-icon="🌫️">
-                    <div class="city-info">
-                        <div class="city-name">Hong Kong</div>
-                        <div class="city-country">Hong Kong</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">🌫️</div>
-                        <div class="city-temp">79°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Seoul" data-country="South Korea" data-temp="69" data-condition="Clear" data-icon="☀️">
-                    <div class="city-info">
-                        <div class="city-name">Seoul</div>
-                        <div class="city-country">South Korea</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">☀️</div>
-                        <div class="city-temp">69°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Mexico City" data-country="Mexico" data-temp="72" data-condition="Partly Cloudy" data-icon="⛅">
-                    <div class="city-info">
-                        <div class="city-name">Mexico City</div>
-                        <div class="city-country">Mexico</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">⛅</div>
-                        <div class="city-temp">72°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Cairo" data-country="Egypt" data-temp="85" data-condition="Sunny" data-icon="☀️">
-                    <div class="city-info">
-                        <div class="city-name">Cairo</div>
-                        <div class="city-country">Egypt</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">☀️</div>
-                        <div class="city-temp">85°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Rio de Janeiro" data-country="Brazil" data-temp="80" data-condition="Sunny" data-icon="☀️">
-                    <div class="city-info">
-                        <div class="city-name">Rio de Janeiro</div>
-                        <div class="city-country">Brazil</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">☀️</div>
-                        <div class="city-temp">80°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Mumbai" data-country="India" data-temp="86" data-condition="Hot & Humid" data-icon="🌡️">
+                <div class="city-item" data-city="Mumbai" data-country="India" data-temp="86" data-condition="Hot & Humid" data-icon="🌡️" data-region-group="asia">
                     <div class="city-info">
                         <div class="city-name">Mumbai</div>
                         <div class="city-country">India</div>
@@ -622,7 +746,54 @@
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Cape Town" data-country="South Africa" data-temp="65" data-condition="Windy" data-icon="💨">
+                <div class="city-item" data-city="Bali" data-country="Indonesia" data-temp="83" data-condition="Tropical" data-icon="🌴" data-region-group="asia">
+                    <div class="city-info">
+                        <div class="city-name">Bali</div>
+                        <div class="city-country">Indonesia</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌴</div>
+                        <div class="city-temp">83°</div>
+                    </div>
+                </div>
+
+                <!-- Middle East & Africa Cities -->
+                <div class="city-item" data-city="Dubai" data-country="UAE" data-temp="95" data-condition="Sunny" data-icon="☀️" data-region-group="middle-east-africa"
+                     data-alert-type="heat" data-alert-icon="🌡️" data-alert-title="Extreme Heat Warning" 
+                     data-alert-message="Temperatures exceeding 95°F (35°C). Avoid prolonged outdoor exposure. Stay hydrated and seek shade.">
+                    <div class="city-info">
+                        <div class="city-name">Dubai</div>
+                        <div class="city-country">UAE</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">95°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Istanbul" data-country="Turkey" data-temp="70" data-condition="Partly Cloudy" data-icon="⛅" data-region-group="middle-east-africa">
+                    <div class="city-info">
+                        <div class="city-name">Istanbul</div>
+                        <div class="city-country">Turkey</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">70°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Cairo" data-country="Egypt" data-temp="85" data-condition="Sunny" data-icon="☀️" data-region-group="middle-east-africa">
+                    <div class="city-info">
+                        <div class="city-name">Cairo</div>
+                        <div class="city-country">Egypt</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">85°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Cape Town" data-country="South Africa" data-temp="65" data-condition="Windy" data-icon="💨" data-region-group="middle-east-africa">
                     <div class="city-info">
                         <div class="city-name">Cape Town</div>
                         <div class="city-country">South Africa</div>
@@ -633,39 +804,49 @@
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Vancouver" data-country="Canada" data-temp="61" data-condition="Rainy" data-icon="🌧️">
+                <!-- Oceania & Americas Cities -->
+                <div class="city-item" data-city="Sydney" data-country="Australia" data-temp="71" data-condition="Partly Cloudy" data-icon="⛅" data-region-group="oceania-americas"
+                     data-alert-type="fire" data-alert-icon="🔥" data-alert-title="Fire Weather Warning" 
+                     data-alert-message="High fire danger due to strong winds and low humidity. Avoid outdoor activities that could spark fires.">
                     <div class="city-info">
-                        <div class="city-name">Vancouver</div>
-                        <div class="city-country">Canada</div>
-                    </div>
-                    <div class="city-weather">
-                        <div class="city-icon">🌧️</div>
-                        <div class="city-temp">61°</div>
-                    </div>
-                </div>
-
-                <div class="city-item" data-city="Berlin" data-country="Germany" data-temp="66" data-condition="Partly Cloudy" data-icon="⛅">
-                    <div class="city-info">
-                        <div class="city-name">Berlin</div>
-                        <div class="city-country">Germany</div>
+                        <div class="city-name">Sydney</div>
+                        <div class="city-country">Australia</div>
                     </div>
                     <div class="city-weather">
                         <div class="city-icon">⛅</div>
-                        <div class="city-temp">66°</div>
+                        <div class="city-temp">71°</div>
                     </div>
                 </div>
 
-                <div class="city-item" data-city="Bali" data-country="Indonesia" data-temp="83" data-condition="Tropical" data-icon="🌴">
+                <div class="city-item" data-city="Rio de Janeiro" data-country="Brazil" data-temp="80" data-condition="Sunny" data-icon="☀️" data-region-group="oceania-americas">
                     <div class="city-info">
-                        <div class="city-name">Bali</div>
-                        <div class="city-country">Indonesia</div>
+                        <div class="city-name">Rio de Janeiro</div>
+                        <div class="city-country">Brazil</div>
                     </div>
                     <div class="city-weather">
-                        <div class="city-icon">🌴</div>
-                        <div class="city-temp">83°</div>
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">80°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Mexico City" data-country="Mexico" data-temp="72" data-condition="Partly Cloudy" data-icon="⛅" data-region-group="oceania-americas">
+                    <div class="city-info">
+                        <div class="city-name">Mexico City</div>
+                        <div class="city-country">Mexico</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">72°</div>
                     </div>
                 </div>
             </div>
+
+            <!-- Region-specific containers (hidden by default) -->
+            <div class="popular-cities" data-region="north-america" style="display: none;"></div>
+            <div class="popular-cities" data-region="europe" style="display: none;"></div>
+            <div class="popular-cities" data-region="asia" style="display: none;"></div>
+            <div class="popular-cities" data-region="middle-east-africa" style="display: none;"></div>
+            <div class="popular-cities" data-region="oceania-americas" style="display: none;"></div>
         </section>
     </main>
 
@@ -769,20 +950,5 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    
-    <!-- Backup chart initialization -->
-    <script>
-        // Backup initialization for chart
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                if (typeof hourlyChart === 'undefined' || !hourlyChart) {
-                    console.log('Attempting backup chart initialization');
-                    if (typeof initializeHourlyChart === 'function') {
-                        initializeHourlyChart();
-                    }
-                }
-            }, 1000);
-        });
-    </script>
 </body>
 </html>
