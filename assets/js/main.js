@@ -8,14 +8,12 @@ let userLocation = {
     lon: -74.0060
 };
 
-// Hourly weather data
+// Hourly weather data (keeping for potential future use)
 const hourlyWeatherData = {
-    labels: ['6hrs ago', '5hrs ago', '4hrs ago', '3hrs ago', '2hrs ago', '1hr ago', 'Now', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM', '12AM'],
-    temperature: [68, 69, 70, 71, 71, 72, 72, 75, 77, 78, 76, 74, 72, 70, 69, 67, 65, 64, 62],
-    precipitation: [0, 0, 5, 10, 15, 10, 5, 0, 0, 15, 70, 85, 80, 40, 20, 10, 5, 0, 0]
+    labels: ['Now', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM'],
+    temperature: [72, 75, 78, 82, 85, 81, 77, 74, 72, 69, 66, 64],
+    precipitation: [30, 10, 5, 0, 15, 70, 80, 65, 25, 10, 5, 0]
 };
-
-let hourlyChart = null;
 
 // Get user's IP-based location
 async function getUserLocationByIP() {
@@ -90,161 +88,6 @@ function updateLocationDisplay() {
     }
 }
 
-// Initialize hourly weather chart
-function initializeHourlyChart() {
-    const canvas = document.getElementById('hourlyWeatherChart');
-    if (!canvas) {
-        console.error('Canvas element not found');
-        return;
-    }
-    
-    // Check if Chart.js is available
-    if (typeof Chart === 'undefined') {
-        console.error('Chart.js library not loaded');
-        return;
-    }
-    
-    const ctx = canvas.getContext('2d');
-    
-    try {
-        hourlyChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: hourlyWeatherData.labels,
-                datasets: [{
-                    label: 'Temperature (°F)',
-                    data: hourlyWeatherData.temperature,
-                    borderColor: '#ff6b35',
-                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#ff6b35',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHoverRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: {
-                    intersect: false,
-                    mode: 'index'
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleColor: '#fff',
-                        bodyColor: '#fff',
-                        borderColor: '#ff6b35',
-                        borderWidth: 1,
-                        cornerRadius: 8,
-                        displayColors: false,
-                        callbacks: {
-                            title: function(context) {
-                                return context[0].label;
-                            },
-                            label: function(context) {
-                                return context.dataset.label + ': ' + context.parsed.y + (context.dataset.label.includes('Temperature') ? '°F' : '%');
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
-                        ticks: {
-                            color: '#666',
-                            callback: function(value) {
-                                return value + '°F';
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        },
-                        ticks: {
-                            color: '#666',
-                            maxRotation: 45
-                        }
-                    }
-                }
-            }
-        });
-        console.log('Chart initialized successfully');
-    } catch (error) {
-        console.error('Error initializing chart:', error);
-    }
-}
-
-// Switch chart data
-function switchChartData(chartType) {
-    if (!hourlyChart) return;
-    
-    const chartBtns = document.querySelectorAll('.chart-btn');
-    chartBtns.forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`[data-chart="${chartType}"]`).classList.add('active');
-    
-    if (chartType === 'temperature') {
-        hourlyChart.data.datasets[0] = {
-            label: 'Temperature (°F)',
-            data: hourlyWeatherData.temperature,
-            borderColor: '#ff6b35',
-            backgroundColor: 'rgba(255, 107, 53, 0.1)',
-            borderWidth: 3,
-            fill: true,
-            tension: 0.4,
-            pointBackgroundColor: '#ff6b35',
-            pointBorderColor: '#fff',
-            pointBorderWidth: 2,
-            pointRadius: 6,
-            pointHoverRadius: 8
-        };
-        hourlyChart.options.scales.y.ticks.callback = function(value) {
-            return value + '°F';
-        };
-    } else if (chartType === 'precipitation') {
-        hourlyChart.data.datasets[0] = {
-            label: 'Precipitation (%)',
-            data: hourlyWeatherData.precipitation,
-            borderColor: '#74b9ff',
-            backgroundColor: 'rgba(116, 185, 255, 0.1)',
-            borderWidth: 3,
-            fill: true,
-            tension: 0.4,
-            pointBackgroundColor: '#74b9ff',
-            pointBorderColor: '#fff',
-            pointBorderWidth: 2,
-            pointRadius: 6,
-            pointHoverRadius: 8
-        };
-        hourlyChart.options.scales.y.ticks.callback = function(value) {
-            return value + '%';
-        };
-    }
-    
-    hourlyChart.update('active');
-}
-
-// Initialize chart controls
-function initializeChartControls() {
-    const chartBtns = document.querySelectorAll('.chart-btn');
-    chartBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const chartType = this.getAttribute('data-chart');
-            switchChartData(chartType);
-        });
-    });
-}
 
 // Extended forecast toggle
 function toggleExtendedForecast() {
@@ -581,6 +424,41 @@ function showNotification(message) {
     }, 3000);
 }
 
+// Region filtering functionality for Popular Cities
+function initializeRegionTabs() {
+    const regionTabs = document.querySelectorAll('.region-tab');
+    const citiesContainers = document.querySelectorAll('.popular-cities');
+    const allCities = document.querySelectorAll('.city-item[data-region-group]');
+    
+    regionTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const selectedRegion = this.getAttribute('data-region');
+            
+            // Update active tab
+            regionTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show/hide cities based on region
+            if (selectedRegion === 'all') {
+                // Show all cities
+                allCities.forEach(city => city.style.display = 'flex');
+            } else {
+                // Filter cities by region
+                allCities.forEach(city => {
+                    const cityRegion = city.getAttribute('data-region-group');
+                    if (cityRegion === selectedRegion) {
+                        city.style.display = 'flex';
+                    } else {
+                        city.style.display = 'none';
+                    }
+                });
+            }
+            
+            console.log(`Region filter changed to: ${selectedRegion}`);
+        });
+    });
+}
+
 // Popular cities functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
@@ -588,26 +466,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSettingsSidebar();
     initializeNavigation();
     initializeQuickActions();
-    initializeChartControls();
+    initializeRegionTabs();
     
     // Auto-detect user location on page load
     getUserLocationByIP();
-    
-    // Wait for Chart.js to load before initializing chart
-    if (typeof Chart !== 'undefined') {
-        setTimeout(() => {
-            initializeHourlyChart();
-        }, 500);
-    } else {
-        // If Chart.js is not loaded, wait a bit longer
-        setTimeout(() => {
-            if (typeof Chart !== 'undefined') {
-                initializeHourlyChart();
-            } else {
-                console.error('Chart.js failed to load');
-            }
-        }, 2000);
-    }
     
     const cityItems = document.querySelectorAll('.city-item');
     
@@ -720,3 +582,235 @@ function updateWeatherAlert(alertType, alertIcon, alertTitle, alertMessage) {
     
     console.log(`Alert updated: ${alertType} - ${alertTitle}`);
 }
+
+// Temperature conversion functionality
+let isMetric = false; // Default to Fahrenheit
+
+// Temperature conversion functions
+function fahrenheitToCelsius(f) {
+    return Math.round((f - 32) * 5 / 9);
+}
+
+function celsiusToFahrenheit(c) {
+    return Math.round(c * 9 / 5 + 32);
+}
+
+// Extract numeric value from temperature string and detect current unit
+function extractTemperatureWithUnit(tempString) {
+    const match = tempString.match(/-?\d+/);
+    const temp = match ? parseInt(match[0]) : 0;
+    const isCelsius = tempString.includes('°C');
+    const isFahrenheit = tempString.includes('°F');
+    return { temp, isCelsius, isFahrenheit };
+}
+
+// Extract numeric value from temperature string
+function extractTemperature(tempString) {
+    const match = tempString.match(/-?\d+/);
+    return match ? parseInt(match[0]) : 0;
+}
+
+// Store original temperatures in Fahrenheit for consistent conversion
+const originalTemperatures = new Map();
+
+// Function to store original temperature values
+function storeOriginalTemperature(element, temp) {
+    const elementId = element.tagName + '_' + Array.from(element.parentNode.children).indexOf(element);
+    if (!originalTemperatures.has(elementId)) {
+        originalTemperatures.set(elementId, temp);
+    }
+    return originalTemperatures.get(elementId);
+}
+
+// Update all temperature displays on the page
+function updateAllTemperatures() {
+    // Update current temperature
+    const currentTempElements = document.querySelectorAll('.current-temp');
+    currentTempElements.forEach(element => {
+        const currentTempData = extractTemperatureWithUnit(element.textContent);
+        let originalTemp = currentTempData.temp;
+        
+        // Convert to Fahrenheit if currently in Celsius for storage
+        if (currentTempData.isCelsius) {
+            originalTemp = celsiusToFahrenheit(currentTempData.temp);
+        }
+        
+        const storedTemp = storeOriginalTemperature(element, originalTemp);
+        
+        if (isMetric) {
+            element.innerHTML = `${fahrenheitToCelsius(storedTemp)}°C<div class="temperature-toggle">
+                <span class="temp-unit active" data-unit="celsius">°C</span>
+                <span class="temp-unit" data-unit="fahrenheit">°F</span>
+            </div>`;
+        } else {
+            element.innerHTML = `${storedTemp}°F<div class="temperature-toggle">
+                <span class="temp-unit" data-unit="celsius">°C</span>
+                <span class="temp-unit active" data-unit="fahrenheit">°F</span>
+            </div>`;
+        }
+    });
+
+    // Update detail card temperatures
+    const detailValues = document.querySelectorAll('.detail-value');
+    detailValues.forEach(element => {
+        const text = element.textContent;
+        if (text.includes('°F') || text.includes('°C')) {
+            const currentTempData = extractTemperatureWithUnit(text);
+            let originalTemp = currentTempData.temp;
+            
+            if (currentTempData.isCelsius) {
+                originalTemp = celsiusToFahrenheit(currentTempData.temp);
+            }
+            
+            const storedTemp = storeOriginalTemperature(element, originalTemp);
+            
+            if (isMetric) {
+                element.innerHTML = `${fahrenheitToCelsius(storedTemp)}°C<div class="temperature-toggle">
+                    <span class="temp-unit active" data-unit="celsius">°C</span>
+                    <span class="temp-unit" data-unit="fahrenheit">°F</span>
+                </div>`;
+            } else {
+                element.innerHTML = `${storedTemp}°F<div class="temperature-toggle">
+                    <span class="temp-unit" data-unit="celsius">°C</span>
+                    <span class="temp-unit active" data-unit="fahrenheit">°F</span>
+                </div>`;
+            }
+        }
+    });
+
+    // Update hourly temperatures
+    const hourlyTemps = document.querySelectorAll('.hourly-temp');
+    hourlyTemps.forEach(element => {
+        const currentTempData = extractTemperatureWithUnit(element.textContent);
+        let originalTemp = currentTempData.temp;
+        
+        if (currentTempData.isCelsius) {
+            originalTemp = celsiusToFahrenheit(currentTempData.temp);
+        }
+        
+        const storedTemp = storeOriginalTemperature(element, originalTemp);
+        
+        if (isMetric) {
+            element.innerHTML = `${fahrenheitToCelsius(storedTemp)}°<div class="temperature-toggle">
+                <span class="temp-unit active" data-unit="celsius">C</span>
+                <span class="temp-unit" data-unit="fahrenheit">F</span>
+            </div>`;
+        } else {
+            element.innerHTML = `${storedTemp}°<div class="temperature-toggle">
+                <span class="temp-unit" data-unit="celsius">C</span>
+                <span class="temp-unit active" data-unit="fahrenheit">F</span>
+            </div>`;
+        }
+    });
+
+    // Update daily high/low temperatures
+    const highTemps = document.querySelectorAll('.high-temp');
+    const lowTemps = document.querySelectorAll('.low-temp');
+    
+    [...highTemps, ...lowTemps].forEach(element => {
+        const currentTempData = extractTemperatureWithUnit(element.textContent);
+        let originalTemp = currentTempData.temp;
+        
+        if (currentTempData.isCelsius) {
+            originalTemp = celsiusToFahrenheit(currentTempData.temp);
+        }
+        
+        const storedTemp = storeOriginalTemperature(element, originalTemp);
+        
+        if (isMetric) {
+            element.innerHTML = `${fahrenheitToCelsius(storedTemp)}°<div class="temperature-toggle">
+                <span class="temp-unit active" data-unit="celsius">C</span>
+                <span class="temp-unit" data-unit="fahrenheit">F</span>
+            </div>`;
+        } else {
+            element.innerHTML = `${storedTemp}°<div class="temperature-toggle">
+                <span class="temp-unit" data-unit="celsius">C</span>
+                <span class="temp-unit active" data-unit="fahrenheit">F</span>
+            </div>`;
+        }
+    });
+
+    // Update city temperatures in popular cities
+    const cityTemps = document.querySelectorAll('.city-temp');
+    cityTemps.forEach(element => {
+        const currentTempData = extractTemperatureWithUnit(element.textContent);
+        let originalTemp = currentTempData.temp;
+        
+        if (currentTempData.isCelsius) {
+            originalTemp = celsiusToFahrenheit(currentTempData.temp);
+        }
+        
+        const storedTemp = storeOriginalTemperature(element, originalTemp);
+        
+        if (isMetric) {
+            element.innerHTML = `${fahrenheitToCelsius(storedTemp)}°<div class="temperature-toggle">
+                <span class="temp-unit active" data-unit="celsius">C</span>
+                <span class="temp-unit" data-unit="fahrenheit">F</span>
+            </div>`;
+        } else {
+            element.innerHTML = `${storedTemp}°<div class="temperature-toggle">
+                <span class="temp-unit" data-unit="celsius">C</span>
+                <span class="temp-unit active" data-unit="fahrenheit">F</span>
+            </div>`;
+        }
+    });
+
+    // Update summary values (for today weather page)
+    const summaryValues = document.querySelectorAll('.summary-value');
+    summaryValues.forEach(element => {
+        const text = element.textContent;
+        if (text.includes('°F') || text.includes('°C')) {
+            const currentTempData = extractTemperatureWithUnit(text);
+            let originalTemp = currentTempData.temp;
+            
+            if (currentTempData.isCelsius) {
+                originalTemp = celsiusToFahrenheit(currentTempData.temp);
+            }
+            
+            const storedTemp = storeOriginalTemperature(element, originalTemp);
+            
+            if (isMetric) {
+                element.innerHTML = `${fahrenheitToCelsius(storedTemp)}°C<div class="temperature-toggle">
+                    <span class="temp-unit active" data-unit="celsius">°C</span>
+                    <span class="temp-unit" data-unit="fahrenheit">°F</span>
+                </div>`;
+            } else {
+                element.innerHTML = `${storedTemp}°F<div class="temperature-toggle">
+                    <span class="temp-unit" data-unit="celsius">°C</span>
+                    <span class="temp-unit active" data-unit="fahrenheit">°F</span>
+                </div>`;
+            }
+        }
+    });
+
+    // Re-attach click listeners to new toggle elements
+    attachTemperatureToggleListeners();
+}
+
+// Attach click listeners to temperature toggle elements
+function attachTemperatureToggleListeners() {
+    const tempUnits = document.querySelectorAll('.temp-unit');
+    tempUnits.forEach(unit => {
+        unit.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const newUnit = this.getAttribute('data-unit');
+            
+            // Only proceed if we're actually changing the unit
+            if ((newUnit === 'celsius' && !isMetric) || (newUnit === 'fahrenheit' && isMetric)) {
+                isMetric = !isMetric;
+                
+                // Update all temperatures on the page
+                updateAllTemperatures();
+            }
+        });
+    });
+}
+
+
+// Initialize temperature toggles when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Add small delay to ensure all elements are loaded
+    setTimeout(() => {
+        updateAllTemperatures();
+    }, 1000);
+});

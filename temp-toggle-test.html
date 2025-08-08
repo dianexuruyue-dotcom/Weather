@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Toggle Position Test</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body { background: linear-gradient(135deg, #ff6b35 0%, #f7931e 25%, #74b9ff 50%, #00cec9 75%, #fd79a8 100%); padding: 40px; }
+        .test-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 40px; 
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+        }
+        .test-section { margin-bottom: 40px; }
+        .test-title { font-size: 1.5rem; margin-bottom: 20px; color: #2d3436; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="text-align: center; color: #2d3436; margin-bottom: 40px;">Temperature Toggle Position Test</h1>
+        
+        <div class="test-section">
+            <h2 class="test-title">Main Temperature Display (Before & After Fix)</h2>
+            <div class="location-info" style="text-align: center;">
+                <div class="current-temp">72°F<div class="temperature-toggle">
+                    <span class="temp-unit" data-unit="celsius">°C</span>
+                    <span class="temp-unit active" data-unit="fahrenheit">°F</span>
+                </div></div>
+                <div class="current-condition">Partly Cloudy with Light Breeze</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">Detail Card Temperature</h2>
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon">🌡️</div>
+                    <div class="detail-label">Feels Like Temperature</div>
+                    <div class="detail-value">75°F<div class="temperature-toggle">
+                        <span class="temp-unit" data-unit="celsius">°C</span>
+                        <span class="temp-unit active" data-unit="fahrenheit">°F</span>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">Hourly Temperature</h2>
+            <div class="hourly-weather">
+                <div class="hourly-item">
+                    <div class="hourly-time">Now</div>
+                    <div class="hourly-icon">⛅</div>
+                    <div class="hourly-temp">72°<div class="temperature-toggle">
+                        <span class="temp-unit" data-unit="celsius">C</span>
+                        <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                    </div></div>
+                    <div class="hourly-precipitation">30%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="test-title">City Temperature</h2>
+            <div class="popular-cities">
+                <div class="city-item">
+                    <div class="city-info">
+                        <div class="city-name">New York</div>
+                        <div class="city-country">USA</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">72°<div class="temperature-toggle">
+                            <span class="temp-unit" data-unit="celsius">C</span>
+                            <span class="temp-unit active" data-unit="fahrenheit">F</span>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

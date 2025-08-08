@@ -280,52 +280,6 @@ body {
     font-size: 1rem;
 }
 
-/* Hourly Chart Styles */
-.chart-controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    justify-content: center;
-}
-
-.chart-btn {
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid transparent;
-    border-radius: 25px;
-    padding: 10px 20px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: #2d3436;
-}
-
-.chart-btn:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.chart-btn.active {
-    background: #ff6b35;
-    color: white;
-    border-color: #ff6b35;
-}
-
-.hourly-chart-container {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px);
-    height: 400px;
-    position: relative;
-}
-
-.hourly-chart-container canvas {
-    max-width: 100%;
-    height: 100% !important;
-}
-
 /* Header and Navigation */
 header {
     background: rgba(255, 255, 255, 0.95);
@@ -1345,6 +1299,13 @@ header {
     font-weight: 600;
 }
 
+.hourly-wind {
+    font-size: 0.85rem;
+    color: #636e72;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
 /* Daily Forecast */
 .daily-forecast {
     display: grid;
@@ -1551,6 +1512,12 @@ footer {
     .current-temp {
         font-size: 4rem;
     }
+    
+    .current-temp .temperature-toggle {
+        font-size: 0.35em;
+        margin-left: 8px;
+        margin-top: -3px;
+    }
 
     .weather-details {
         grid-template-columns: repeat(2, 1fr);
@@ -1558,9 +1525,53 @@ footer {
     }
 
     .daily-item {
-        grid-template-columns: 1fr;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        gap: 5px;
+        padding: 12px;
+        flex-wrap: nowrap;
+    }
+    
+    .daily-item .day-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        min-width: 60px;
+        flex-shrink: 0;
+    }
+    
+    .daily-item .daily-icon {
+        font-size: 1.5rem;
+        min-width: 30px;
         text-align: center;
-        gap: 10px;
+        flex-shrink: 0;
+    }
+    
+    .daily-item .daily-desc {
+        font-size: 0.75rem;
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .daily-item .temp-range {
+        font-size: 0.85rem;
+        font-weight: 600;
+        min-width: 70px;
+        text-align: right;
+        flex-shrink: 0;
+    }
+    
+    .daily-item .temp-range .temperature-toggle {
+        font-size: 0.6em;
+        margin-left: 2px;
+    }
+    
+    .daily-item .daily-details {
+        display: none; /* Hide wind/rain details on mobile to save space */
     }
 
     .extended-item {
@@ -1572,6 +1583,28 @@ footer {
     .footer-links a {
         display: block;
         margin: 10px 0;
+    }
+
+    /* Mobile Popular Cities and Region Tabs */
+    .region-tabs {
+        gap: 5px;
+        margin-bottom: 20px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .region-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .region-tab {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        flex-shrink: 0;
+        min-width: auto;
+        gap: 5px;
     }
 
     .popular-cities {
@@ -1716,6 +1749,84 @@ footer {
     .setting-select {
         width: 100%;
     }
+}
+
+/* Temperature Toggle Styles */
+.temperature-toggle {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-size: 0.7em;
+}
+
+.temp-unit {
+    padding: 2px 6px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.temp-unit.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.temp-unit:hover:not(.active) {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Temperature display with toggle in different contexts */
+.current-temp .temperature-toggle {
+    font-size: 0.4em;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-top: -5px;
+    display: inline-block;
+}
+
+.detail-value .temperature-toggle,
+.hourly-temp .temperature-toggle,
+.city-temp .temperature-toggle,
+.daily-temp .temperature-toggle {
+    font-size: 0.6em;
+    margin-left: 6px;
+}
+
+.high-temp .temperature-toggle,
+.low-temp .temperature-toggle {
+    font-size: 0.7em;
+    margin-left: 5px;
+}
+
+/* For dark backgrounds */
+.detail-card .temperature-toggle,
+.hourly-item .temperature-toggle {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.detail-card .temp-unit {
+    color: rgba(45, 52, 54, 0.7);
+}
+
+.detail-card .temp-unit.active {
+    background: rgba(116, 185, 255, 0.2);
+    color: #0984e3;
+}
+
+.hourly-item .temp-unit {
+    color: rgba(45, 52, 54, 0.7);
+}
+
+.hourly-item .temp-unit.active {
+    background: rgba(116, 185, 255, 0.2);
+    color: #0984e3;
 }
 
 /* Custom scrollbar */
@@ -2018,6 +2129,56 @@ footer {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
     margin-top: 25px;
+}
+
+/* Region Navigation Tabs */
+.region-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid rgba(116, 185, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.region-tab {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(116, 185, 255, 0.2);
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #636e72;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.region-tab:hover {
+    background: rgba(116, 185, 255, 0.1);
+    border-color: #74b9ff;
+    color: #74b9ff;
+    transform: translateY(-2px);
+}
+
+.region-tab.active {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    border-color: #74b9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(116, 185, 255, 0.3);
+}
+
+/* Popular Cities Containers */
+.popular-cities:not(.active) {
+    display: none;
+}
+
+.popular-cities.active {
+    display: grid;
 }
 
 .city-item {
