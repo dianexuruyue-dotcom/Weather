@@ -42,22 +42,48 @@
                     </div>
                     <h1 class="brand-name">Weather</h1>
                 </a>
+                <a href="https://play.google.com/store/apps/details?id=com.weather.free.forecast.dailyweather&hl=en" class="mobile-app-download" target="_blank" rel="noopener">
+                    <span class="google-play-icon"></span>
+                </a>
             </div>
             
             <div class="search-container">
-                <input type="text" class="search-box" placeholder="Search for cities, weather conditions, or locations..." aria-label="Search weather by city">
+                <input type="text" class="search-box" placeholder="Search for cities" aria-label="Search weather by city">
                 <button class="search-btn" aria-label="Search">🔍</button>
             </div>
             
-            <a href="https://play.google.com/store/apps/details?id=com.weather.free.forecast.dailyweather&hl=en" class="app-download" target="_blank" rel="noopener">
-                <span class="google-play-icon"></span>
-                Get the App
-            </a>
+            <nav class="main-nav">
+                <div class="nav-item" data-feature="radar">
+                    <div class="nav-icon">🌦️</div>
+                    <span>Radar</span>
+                </div>
+                <div class="nav-item" data-feature="maps">
+                    <div class="nav-icon">🗺️</div>
+                    <span>Maps</span>
+                </div>
+                <div class="nav-item" data-feature="air-quality">
+                    <div class="nav-icon">🌬️</div>
+                    <span>Air Quality</span>
+                </div>
+                <div class="nav-item" data-feature="settings">
+                    <div class="nav-icon">⚙️</div>
+                    <span>Settings</span>
+                </div>
+            </nav>
         </div>
     </header>
 
     <main class="container">
         <section class="current-weather">
+            <div class="weather-alert">
+                <div class="alert-icon">🌧️</div>
+                <div class="alert-content">
+                    <div class="alert-title">Rain Alert</div>
+                    <div class="alert-message">Light to moderate rainfall expected between 2 PM - 6 PM today. Consider carrying an umbrella.</div>
+                </div>
+                <div class="alert-time">Updated 5 min ago</div>
+            </div>
+
             <div class="location-info">
                 <h2 class="location-name">New York, NY</h2>
                 <div class="current-temp">72°F</div>
@@ -85,10 +111,154 @@
                     <div class="detail-label">UV Index</div>
                     <div class="detail-value">6</div>
                 </div>
-                <div class="detail-card">
-                    <div class="detail-icon">🌪️</div>
-                    <div class="detail-label">Atmospheric Pressure</div>
-                    <div class="detail-value">30.12</div>
+            </div>
+        </section>
+
+        <!-- Quick Actions Panel -->
+        <section class="quick-actions">
+            <div class="action-item" data-action="clothing">
+                <div class="action-icon">👕</div>
+                <div class="action-text">
+                    <div class="action-title">Clothing Advice</div>
+                    <div class="action-desc">What to wear today</div>
+                </div>
+            </div>
+            <div class="action-item" data-action="sports">
+                <div class="action-icon">🏃</div>
+                <div class="action-text">
+                    <div class="action-title">Sport Index</div>
+                    <div class="action-desc">Best time for outdoor activities</div>
+                </div>
+            </div>
+            <div class="action-item" data-action="uv">
+                <div class="action-icon">☀️</div>
+                <div class="action-text">
+                    <div class="action-title">UV Protection</div>
+                    <div class="action-desc">Sun safety recommendations</div>
+                </div>
+            </div>
+            <div class="action-item" data-action="air">
+                <div class="action-icon">🌬️</div>
+                <div class="action-text">
+                    <div class="action-title">Air Quality</div>
+                    <div class="action-desc">AQI: 52 - Good</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Analytics Section -->
+        <section class="weather-section">
+            <h3 class="section-title">Weather Analytics</h3>
+            <p class="section-subtitle">Interactive charts and detailed weather analysis</p>
+            
+            <div class="analytics-tabs">
+                <button class="tab-btn active" data-tab="temperature">Temperature</button>
+                <button class="tab-btn" data-tab="precipitation">Precipitation</button>
+                <button class="tab-btn" data-tab="wind">Wind</button>
+                <button class="tab-btn" data-tab="pressure">Pressure</button>
+            </div>
+            
+            <div class="analytics-content">
+                <div class="chart-container active" id="temperature-chart">
+                    <div class="chart-placeholder">
+                        <div class="chart-icon">📊</div>
+                        <p>Interactive Temperature Chart</p>
+                        <small>24-hour temperature trend with min/max indicators</small>
+                    </div>
+                </div>
+                <div class="chart-container" id="precipitation-chart">
+                    <div class="chart-placeholder">
+                        <div class="chart-icon">🌧️</div>
+                        <p>Precipitation Forecast</p>
+                        <small>Hourly rainfall probability and intensity</small>
+                    </div>
+                </div>
+                <div class="chart-container" id="wind-chart">
+                    <div class="chart-placeholder">
+                        <div class="chart-icon">💨</div>
+                        <p>Wind Direction & Speed</p>
+                        <small>Wind rose diagram with gust information</small>
+                    </div>
+                </div>
+                <div class="chart-container" id="pressure-chart">
+                    <div class="chart-placeholder">
+                        <div class="chart-icon">🌪️</div>
+                        <p>Atmospheric Pressure</p>
+                        <small>Barometric pressure trends and weather patterns</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Recommendations -->
+        <section class="weather-section">
+            <h3 class="section-title">Smart Recommendations</h3>
+            <p class="section-subtitle">AI-powered suggestions based on current weather conditions</p>
+            
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <div class="rec-icon">🧥</div>
+                    <div class="rec-content">
+                        <h4>Clothing Suggestion</h4>
+                        <p>Light jacket recommended. Temperature will drop to 65°F this evening.</p>
+                        <span class="confidence">Confidence: 85%</span>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <div class="rec-icon">🏃‍♂️</div>
+                    <div class="rec-content">
+                        <h4>Best Exercise Time</h4>
+                        <p>Ideal for outdoor running between 6-8 AM. Low humidity and comfortable temperature.</p>
+                        <span class="confidence">Confidence: 92%</span>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <div class="rec-icon">🌻</div>
+                    <div class="rec-content">
+                        <h4>UV Protection</h4>
+                        <p>SPF 30+ sunscreen recommended. UV index peaks at 6 between 11 AM - 3 PM.</p>
+                        <span class="confidence">Confidence: 88%</span>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <div class="rec-icon">🚗</div>
+                    <div class="rec-content">
+                        <h4>Travel Conditions</h4>
+                        <p>Good driving conditions. Light rain expected after 6 PM - drive carefully.</p>
+                        <span class="confidence">Confidence: 79%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Comparison -->
+        <section class="weather-section">
+            <h3 class="section-title">Historical Weather</h3>
+            <p class="section-subtitle">Compare current conditions with historical data</p>
+            
+            <div class="historical-comparison">
+                <div class="comparison-item">
+                    <div class="comp-label">Today</div>
+                    <div class="comp-value current">72°F</div>
+                    <div class="comp-desc">Partly Cloudy</div>
+                </div>
+                <div class="comparison-item">
+                    <div class="comp-label">Last Year</div>
+                    <div class="comp-value">68°F</div>
+                    <div class="comp-desc">+4° warmer</div>
+                </div>
+                <div class="comparison-item">
+                    <div class="comp-label">10-Year Avg</div>
+                    <div class="comp-value">70°F</div>
+                    <div class="comp-desc">+2° above avg</div>
+                </div>
+                <div class="comparison-item">
+                    <div class="comp-label">Record High</div>
+                    <div class="comp-value">89°F</div>
+                    <div class="comp-desc">July 15, 2018</div>
                 </div>
             </div>
         </section>
@@ -359,7 +529,378 @@
                 </button>
             </div>
         </section>
+
+        <section class="weather-section">
+            <h3 class="section-title">Popular Cities</h3>
+            <p class="section-subtitle">Discover weather conditions in top travel destinations worldwide</p>
+            
+            <div class="popular-cities">
+                <div class="city-item" data-city="New York" data-country="USA" data-temp="72" data-condition="Partly Cloudy" data-icon="⛅" 
+                     data-alert-type="rain" data-alert-icon="🌧️" data-alert-title="Rain Alert" 
+                     data-alert-message="Light to moderate rainfall expected between 2 PM - 6 PM today. Consider carrying an umbrella.">
+                    <div class="city-info">
+                        <div class="city-name">New York</div>
+                        <div class="city-country">USA</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">72°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="London" data-country="UK" data-temp="64" data-condition="Light Rain" data-icon="🌧️"
+                     data-alert-type="fog" data-alert-icon="🌫️" data-alert-title="Fog Advisory" 
+                     data-alert-message="Dense fog expected during morning hours. Visibility may be reduced to less than 100 meters. Drive carefully.">
+                    <div class="city-info">
+                        <div class="city-name">London</div>
+                        <div class="city-country">UK</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌧️</div>
+                        <div class="city-temp">64°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Paris" data-country="France" data-temp="68" data-condition="Sunny" data-icon="☀️"
+                     data-alert-type="none" data-alert-icon="" data-alert-title="" data-alert-message="">
+                    <div class="city-info">
+                        <div class="city-name">Paris</div>
+                        <div class="city-country">France</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">68°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Tokyo" data-country="Japan" data-temp="75" data-condition="Clear" data-icon="☀️"
+                     data-alert-type="earthquake" data-alert-icon="🟡" data-alert-title="Earthquake Advisory" 
+                     data-alert-message="Minor seismic activity detected. No immediate danger, but stay alert for aftershocks.">
+                    <div class="city-info">
+                        <div class="city-name">Tokyo</div>
+                        <div class="city-country">Japan</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">75°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Sydney" data-country="Australia" data-temp="71" data-condition="Partly Cloudy" data-icon="⛅"
+                     data-alert-type="fire" data-alert-icon="🔥" data-alert-title="Fire Weather Warning" 
+                     data-alert-message="High fire danger due to strong winds and low humidity. Avoid outdoor activities that could spark fires.">
+                    <div class="city-info">
+                        <div class="city-name">Sydney</div>
+                        <div class="city-country">Australia</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">71°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Dubai" data-country="UAE" data-temp="95" data-condition="Sunny" data-icon="☀️"
+                     data-alert-type="heat" data-alert-icon="🌡️" data-alert-title="Extreme Heat Warning" 
+                     data-alert-message="Temperatures exceeding 95°F (35°C). Avoid prolonged outdoor exposure. Stay hydrated and seek shade.">
+                    <div class="city-info">
+                        <div class="city-name">Dubai</div>
+                        <div class="city-country">UAE</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">95°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Singapore" data-country="Singapore" data-temp="84" data-condition="Thunderstorms" data-icon="⛈️"
+                     data-alert-type="storm" data-alert-icon="⛈️" data-alert-title="Thunderstorm Warning" 
+                     data-alert-message="Severe thunderstorms with heavy rain and strong winds expected. Stay indoors and avoid travel.">
+                    <div class="city-info">
+                        <div class="city-name">Singapore</div>
+                        <div class="city-country">Singapore</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛈️</div>
+                        <div class="city-temp">84°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Bangkok" data-country="Thailand" data-temp="88" data-condition="Hot" data-icon="🌡️"
+                     data-alert-type="heat" data-alert-icon="🌡️" data-alert-title="Heat Advisory" 
+                     data-alert-message="High temperatures and humidity. Heat index may reach dangerous levels. Stay cool and hydrated.">
+                    <div class="city-info">
+                        <div class="city-name">Bangkok</div>
+                        <div class="city-country">Thailand</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌡️</div>
+                        <div class="city-temp">88°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Rome" data-country="Italy" data-temp="73" data-condition="Sunny" data-icon="☀️">
+                    <div class="city-info">
+                        <div class="city-name">Rome</div>
+                        <div class="city-country">Italy</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">73°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Barcelona" data-country="Spain" data-temp="76" data-condition="Sunny" data-icon="☀️">
+                    <div class="city-info">
+                        <div class="city-name">Barcelona</div>
+                        <div class="city-country">Spain</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">76°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Amsterdam" data-country="Netherlands" data-temp="63" data-condition="Cloudy" data-icon="☁️">
+                    <div class="city-info">
+                        <div class="city-name">Amsterdam</div>
+                        <div class="city-country">Netherlands</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☁️</div>
+                        <div class="city-temp">63°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Istanbul" data-country="Turkey" data-temp="70" data-condition="Partly Cloudy" data-icon="⛅">
+                    <div class="city-info">
+                        <div class="city-name">Istanbul</div>
+                        <div class="city-country">Turkey</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">70°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Los Angeles" data-country="USA" data-temp="78" data-condition="Sunny" data-icon="☀️">
+                    <div class="city-info">
+                        <div class="city-name">Los Angeles</div>
+                        <div class="city-country">USA</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">78°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Miami" data-country="USA" data-temp="82" data-condition="Partly Cloudy" data-icon="⛅">
+                    <div class="city-info">
+                        <div class="city-name">Miami</div>
+                        <div class="city-country">USA</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">82°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Hong Kong" data-country="Hong Kong" data-temp="79" data-condition="Humid" data-icon="🌫️">
+                    <div class="city-info">
+                        <div class="city-name">Hong Kong</div>
+                        <div class="city-country">Hong Kong</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌫️</div>
+                        <div class="city-temp">79°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Seoul" data-country="South Korea" data-temp="69" data-condition="Clear" data-icon="☀️">
+                    <div class="city-info">
+                        <div class="city-name">Seoul</div>
+                        <div class="city-country">South Korea</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">69°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Mexico City" data-country="Mexico" data-temp="72" data-condition="Partly Cloudy" data-icon="⛅">
+                    <div class="city-info">
+                        <div class="city-name">Mexico City</div>
+                        <div class="city-country">Mexico</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">72°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Cairo" data-country="Egypt" data-temp="85" data-condition="Sunny" data-icon="☀️">
+                    <div class="city-info">
+                        <div class="city-name">Cairo</div>
+                        <div class="city-country">Egypt</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">85°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Rio de Janeiro" data-country="Brazil" data-temp="80" data-condition="Sunny" data-icon="☀️">
+                    <div class="city-info">
+                        <div class="city-name">Rio de Janeiro</div>
+                        <div class="city-country">Brazil</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">☀️</div>
+                        <div class="city-temp">80°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Mumbai" data-country="India" data-temp="86" data-condition="Hot & Humid" data-icon="🌡️">
+                    <div class="city-info">
+                        <div class="city-name">Mumbai</div>
+                        <div class="city-country">India</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌡️</div>
+                        <div class="city-temp">86°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Cape Town" data-country="South Africa" data-temp="65" data-condition="Windy" data-icon="💨">
+                    <div class="city-info">
+                        <div class="city-name">Cape Town</div>
+                        <div class="city-country">South Africa</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">💨</div>
+                        <div class="city-temp">65°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Vancouver" data-country="Canada" data-temp="61" data-condition="Rainy" data-icon="🌧️">
+                    <div class="city-info">
+                        <div class="city-name">Vancouver</div>
+                        <div class="city-country">Canada</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌧️</div>
+                        <div class="city-temp">61°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Berlin" data-country="Germany" data-temp="66" data-condition="Partly Cloudy" data-icon="⛅">
+                    <div class="city-info">
+                        <div class="city-name">Berlin</div>
+                        <div class="city-country">Germany</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">⛅</div>
+                        <div class="city-temp">66°</div>
+                    </div>
+                </div>
+
+                <div class="city-item" data-city="Bali" data-country="Indonesia" data-temp="83" data-condition="Tropical" data-icon="🌴">
+                    <div class="city-info">
+                        <div class="city-name">Bali</div>
+                        <div class="city-country">Indonesia</div>
+                    </div>
+                    <div class="city-weather">
+                        <div class="city-icon">🌴</div>
+                        <div class="city-temp">83°</div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.weather.free.forecast.dailyweather&hl=en" class="floating-app-download" target="_blank" rel="noopener">
+            <span class="google-play-icon"></span>
+            <span class="app-text">Get App</span>
+        </a>
+        <button class="fab main-fab" id="mainFab">
+            <span class="fab-icon">⚡</span>
+        </button>
+        <div class="fab-menu" id="fabMenu">
+            <button class="fab" data-action="share">
+                <span class="fab-icon">📤</span>
+                <span class="fab-label">Share</span>
+            </button>
+            <button class="fab" data-action="bookmark">
+                <span class="fab-icon">🔖</span>
+                <span class="fab-label">Save</span>
+            </button>
+            <button class="fab" data-action="notifications">
+                <span class="fab-icon">🔔</span>
+                <span class="fab-label">Alerts</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Settings Sidebar -->
+    <div class="settings-sidebar" id="settingsSidebar">
+        <div class="sidebar-header">
+            <h3>Settings</h3>
+            <button class="close-sidebar" id="closeSidebar">✕</button>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="setting-group">
+                <h4>Units</h4>
+                <div class="setting-item">
+                    <label>Temperature</label>
+                    <select class="setting-select">
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                        <option value="celsius">Celsius (°C)</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Wind Speed</label>
+                    <select class="setting-select">
+                        <option value="mph">MPH</option>
+                        <option value="kmh">KM/H</option>
+                        <option value="ms">m/s</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h4>Notifications</h4>
+                <div class="setting-item">
+                    <label>Weather Alerts</label>
+                    <input type="checkbox" class="setting-toggle" checked>
+                </div>
+                <div class="setting-item">
+                    <label>Daily Summary</label>
+                    <input type="checkbox" class="setting-toggle">
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h4>Display</h4>
+                <div class="setting-item">
+                    <label>Theme</label>
+                    <select class="setting-select">
+                        <option value="auto">Auto</option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Animation</label>
+                    <input type="checkbox" class="setting-toggle" checked>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
     <footer>
         <div class="footer-container">
