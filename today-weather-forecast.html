@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Today Weather Forecast - Accurate today's weather forecast service with real-time weather data including temperature, humidity, wind speed, precipitation probability and detailed meteorological information.">
+    <meta name="keywords" content="today weather forecast,today's weather,current weather,real-time weather,today temperature,weather today,weather query,current weather conditions,daily weather">
+    <meta name="author" content="Weather App">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Today Weather Forecast - Accurate Daily Weather Forecast Service">
+    <meta property="og:description" content="Get the most accurate today's weather forecast including real-time temperature, humidity, wind speed, precipitation and detailed meteorological information. Professional daily weather forecast service.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://weather.com/today-weather-forecast">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://weather.com/today-weather-forecast">
+    
+    <!-- Breadcrumb structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://weather.com"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Today Weather Forecast"
+        }]
+    }
+    </script>
+    
+    <!-- Weather data structured markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WeatherForecast",
+        "name": "Today Weather Forecast",
+        "description": "Accurate today's weather forecast service",
+        "dateCreated": "2024-01-01",
+        "provider": {
+            "@type": "Organization",
+            "name": "Weather App"
+        }
+    }
+    </script>
+    
+    <title>Today Weather Forecast - Accurate Daily Weather | Real-time Weather Query Service</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html" class="home-link">
+                    <div class="weather-logo">
+                        <div class="sun-icon"></div>
+                        <div class="cloud-icon"></div>
+                    </div>
+                    <h1 class="brand-name">Weather</h1>
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search city today's weather" aria-label="Search city today's weather">
+                <button class="search-btn" aria-label="Search">🔍</button>
+            </div>
+            
+            <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+                <a href="index.html" class="nav-item">
+                    <div class="nav-icon">🏠</div>
+                    <span>Home</span>
+                </a>
+                <a href="7-day-weather-forecast.html" class="nav-item">
+                    <div class="nav-icon">📅</div>
+                    <span>7-Day</span>
+                </a>
+                <a href="air-quality-index.html" class="nav-item">
+                    <div class="nav-icon">🌬️</div>
+                    <span>Air Quality</span>
+                </a>
+                <a href="uv-index.html" class="nav-item">
+                    <div class="nav-icon">☀️</div>
+                    <span>UV Index</span>
+                </a>
+                <a href="weather-alert.html" class="nav-item">
+                    <div class="nav-icon">⚠️</div>
+                    <span>Alerts</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <div class="nav-icon">ℹ️</div>
+                    <span>About</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb Navigation">
+        <div class="container">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li aria-current="page">Today Weather Forecast</li>
+            </ol>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1>Today Weather Forecast</h1>
+            <p class="page-subtitle">Get the most accurate today's weather forecast information including real-time temperature, humidity, wind speed, precipitation probability and detailed meteorological data</p>
+        </section>
+
+        <!-- Current Weather Today -->
+        <section class="current-weather" role="main" aria-labelledby="today-weather-title">
+            <h2 id="today-weather-title" class="sr-only">Current Weather Conditions</h2>
+            
+            <div class="weather-alert">
+                <div class="alert-icon">🌧️</div>
+                <div class="alert-content">
+                    <div class="alert-title">Today's Weather Alert</div>
+                    <div class="alert-message">Light to moderate rain expected from 2 PM to 6 PM today. Please carry rain gear when going out. Suitable temperature, remember to adjust clothing accordingly.</div>
+                </div>
+                <div class="alert-time">Updated 5 minutes ago</div>
+            </div>
+
+            <div class="location-info">
+                <h2 class="location-name">New York, NY</h2>
+                <div class="current-temp">72°F</div>
+                <div class="current-condition">Partly cloudy with light breeze</div>
+                <div class="update-time">Today Weather Forecast - Last updated: 10:30 AM</div>
+            </div>
+            
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon">🌡️</div>
+                    <div class="detail-label">Feels Like</div>
+                    <div class="detail-value">75°F</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">💨</div>
+                    <div class="detail-label">Wind Speed</div>
+                    <div class="detail-value">SE 3 mph</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-label">Humidity</div>
+                    <div class="detail-value">65%</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">☀️</div>
+                    <div class="detail-label">UV Index</div>
+                    <div class="detail-value">Moderate (6)</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">🌧️</div>
+                    <div class="detail-label">Chance of Rain</div>
+                    <div class="detail-value">30%</div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">👁️</div>
+                    <div class="detail-label">Visibility</div>
+                    <div class="detail-value">6.2 miles</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Hourly Forecast -->
+        <section class="weather-section" role="region" aria-labelledby="hourly-today-title">
+            <h2 id="hourly-today-title">Today's Hourly Weather Forecast</h2>
+            <p class="section-subtitle">View detailed hourly weather changes for today</p>
+            
+            <div class="hourly-container">
+                <div class="hourly-weather">
+                    <div class="hourly-item current" style="border: 3px solid #ff6b35;">
+                        <div class="hourly-time">Now</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">72°</div>
+                        <div class="hourly-precipitation">30% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">11 AM</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">75°</div>
+                        <div class="hourly-precipitation">10% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">12 PM</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">78°</div>
+                        <div class="hourly-precipitation">5% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">1 PM</div>
+                        <div class="hourly-icon">☀️</div>
+                        <div class="hourly-temp">82°</div>
+                        <div class="hourly-precipitation">0% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">2 PM</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">85°</div>
+                        <div class="hourly-precipitation">15% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">3 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">81°</div>
+                        <div class="hourly-precipitation">70% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">4 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">77°</div>
+                        <div class="hourly-precipitation">80% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">5 PM</div>
+                        <div class="hourly-icon">🌧️</div>
+                        <div class="hourly-temp">74°</div>
+                        <div class="hourly-precipitation">65% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">6 PM</div>
+                        <div class="hourly-icon">⛅</div>
+                        <div class="hourly-temp">72°</div>
+                        <div class="hourly-precipitation">25% rain</div>
+                    </div>
+                    <div class="hourly-item">
+                        <div class="hourly-time">7 PM</div>
+                        <div class="hourly-icon">🌙</div>
+                        <div class="hourly-temp">69°</div>
+                        <div class="hourly-precipitation">10% rain</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today's Weather Summary -->
+        <section class="weather-section" role="region" aria-labelledby="today-summary-title">
+            <h2 id="today-summary-title">Today's Weather Summary</h2>
+            <div class="weather-summary">
+                <div class="summary-card">
+                    <h3>Today's High</h3>
+                    <div class="summary-value">85°F</div>
+                    <div class="summary-time">2:00 PM</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Today's Low</h3>
+                    <div class="summary-value">64°F</div>
+                    <div class="summary-time">5:00 AM</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Total Precipitation</h3>
+                    <div class="summary-value">0.2 in</div>
+                    <div class="summary-time">Expected total</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Sunshine Hours</h3>
+                    <div class="summary-value">6.5 hours</div>
+                    <div class="summary-time">Clear sunshine</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Weather Pages -->
+        <section class="weather-section" role="region" aria-labelledby="related-forecasts-title">
+            <h2 id="related-forecasts-title">Related Weather Forecasts</h2>
+            <div class="related-links">
+                <a href="7-day-weather-forecast.html" class="related-card">
+                    <div class="related-icon">📅</div>
+                    <h3>7-Day Weather Forecast</h3>
+                    <p>View detailed weather trends for the next week</p>
+                </a>
+                <a href="hourly-weather-forecast.html" class="related-card">
+                    <div class="related-icon">🕐</div>
+                    <h3>Hourly Weather Forecast</h3>
+                    <p>24-hour detailed weather forecast</p>
+                </a>
+                <a href="weather-radar-map.html" class="related-card">
+                    <div class="related-icon">🌦️</div>
+                    <h3>Weather Radar Map</h3>
+                    <p>Real-time precipitation radar monitoring</p>
+                </a>
+                <a href="air-quality-index.html" class="related-card">
+                    <div class="related-icon">🌬️</div>
+                    <h3>Air Quality Index</h3>
+                    <p>Real-time PM2.5 and AQI monitoring</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-use.html">Terms of Use</a>
+                <a href="7-day-weather-forecast.html">7-Day Forecast</a>
+                <a href="hourly-weather-forecast.html">Hourly Forecast</a>
+            </div>
+            <div class="copyright">
+                © 2024 Weather App. Today Weather Forecast Professional Service - Accurate Weather Forecast Data Provider
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -29,6 +29,7 @@
     
     <title>Weather - Accurate Weather Forecast App | Hourly, 7-Day & 30-Day Weather Predictions</title>
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -47,28 +48,28 @@
                 </a>
             </div>
             
-            <div class="search-container">
-                <input type="text" class="search-box" placeholder="Search for cities" aria-label="Search weather by city">
-                <button class="search-btn" aria-label="Search">🔍</button>
-            </div>
             
-            <nav class="main-nav">
-                <div class="nav-item" data-feature="radar">
-                    <div class="nav-icon">🌦️</div>
-                    <span>Radar</span>
-                </div>
-                <div class="nav-item" data-feature="maps">
-                    <div class="nav-icon">🗺️</div>
-                    <span>Maps</span>
-                </div>
-                <div class="nav-item" data-feature="air-quality">
+            <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+                <a href="7-day-weather-forecast.html" class="nav-item">
+                    <div class="nav-icon">📅</div>
+                    <span>7-Day</span>
+                </a>
+                <a href="air-quality-index.html" class="nav-item">
                     <div class="nav-icon">🌬️</div>
                     <span>Air Quality</span>
-                </div>
-                <div class="nav-item" data-feature="settings">
-                    <div class="nav-icon">⚙️</div>
-                    <span>Settings</span>
-                </div>
+                </a>
+                <a href="uv-index.html" class="nav-item">
+                    <div class="nav-icon">☀️</div>
+                    <span>UV Index</span>
+                </a>
+                <a href="weather-alert.html" class="nav-item">
+                    <div class="nav-icon">⚠️</div>
+                    <span>Alerts</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <div class="nav-icon">ℹ️</div>
+                    <span>About</span>
+                </a>
             </nav>
         </div>
     </header>
@@ -85,7 +86,10 @@
             </div>
 
             <div class="location-info">
-                <h2 class="location-name">New York, NY</h2>
+                <h2 class="location-name">
+                    <span class="location-loading">🌍 Detecting your location...</span>
+                    <span class="location-text" style="display: none;">New York, NY</span>
+                </h2>
                 <div class="current-temp">72°F</div>
                 <div class="current-condition">Partly Cloudy with Light Breeze</div>
             </div>
@@ -146,47 +150,18 @@
             </div>
         </section>
 
-        <!-- Weather Analytics Section -->
+        <!-- Hourly Weather Forecast with Chart -->
         <section class="weather-section">
-            <h3 class="section-title">Weather Analytics</h3>
-            <p class="section-subtitle">Interactive charts and detailed weather analysis</p>
+            <h3 class="section-title">Hourly Weather Forecast</h3>
+            <p class="section-subtitle">Track temperature changes and precipitation probability with interactive charts</p>
             
-            <div class="analytics-tabs">
-                <button class="tab-btn active" data-tab="temperature">Temperature</button>
-                <button class="tab-btn" data-tab="precipitation">Precipitation</button>
-                <button class="tab-btn" data-tab="wind">Wind</button>
-                <button class="tab-btn" data-tab="pressure">Pressure</button>
+            <div class="chart-controls">
+                <button class="chart-btn active" data-chart="temperature">Temperature</button>
+                <button class="chart-btn" data-chart="precipitation">Precipitation</button>
             </div>
             
-            <div class="analytics-content">
-                <div class="chart-container active" id="temperature-chart">
-                    <div class="chart-placeholder">
-                        <div class="chart-icon">📊</div>
-                        <p>Interactive Temperature Chart</p>
-                        <small>24-hour temperature trend with min/max indicators</small>
-                    </div>
-                </div>
-                <div class="chart-container" id="precipitation-chart">
-                    <div class="chart-placeholder">
-                        <div class="chart-icon">🌧️</div>
-                        <p>Precipitation Forecast</p>
-                        <small>Hourly rainfall probability and intensity</small>
-                    </div>
-                </div>
-                <div class="chart-container" id="wind-chart">
-                    <div class="chart-placeholder">
-                        <div class="chart-icon">💨</div>
-                        <p>Wind Direction & Speed</p>
-                        <small>Wind rose diagram with gust information</small>
-                    </div>
-                </div>
-                <div class="chart-container" id="pressure-chart">
-                    <div class="chart-placeholder">
-                        <div class="chart-icon">🌪️</div>
-                        <p>Atmospheric Pressure</p>
-                        <small>Barometric pressure trends and weather patterns</small>
-                    </div>
-                </div>
+            <div class="hourly-chart-container">
+                <canvas id="hourlyWeatherChart"></canvas>
             </div>
         </section>
 
@@ -263,129 +238,6 @@
             </div>
         </section>
 
-        <section class="weather-section">
-            <h3 class="section-title">Hourly Weather Forecast</h3>
-            <p class="section-subtitle">Track temperature changes and precipitation probability for the past 6 hours and next 12 hours</p>
-            
-            <div class="hourly-container">
-                <div class="hourly-weather">
-                    <div class="hourly-item">
-                        <div class="hourly-time">6 hrs ago</div>
-                        <div class="hourly-icon">☀️</div>
-                        <div class="hourly-temp">68°</div>
-                        <div class="hourly-precipitation">0% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">5 hrs ago</div>
-                        <div class="hourly-icon">☀️</div>
-                        <div class="hourly-temp">69°</div>
-                        <div class="hourly-precipitation">0% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">4 hrs ago</div>
-                        <div class="hourly-icon">⛅</div>
-                        <div class="hourly-temp">70°</div>
-                        <div class="hourly-precipitation">5% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">3 hrs ago</div>
-                        <div class="hourly-icon">⛅</div>
-                        <div class="hourly-temp">71°</div>
-                        <div class="hourly-precipitation">10% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">2 hrs ago</div>
-                        <div class="hourly-icon">⛅</div>
-                        <div class="hourly-temp">71°</div>
-                        <div class="hourly-precipitation">15% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">1 hr ago</div>
-                        <div class="hourly-icon">⛅</div>
-                        <div class="hourly-temp">72°</div>
-                        <div class="hourly-precipitation">10% rain</div>
-                    </div>
-                    <div class="hourly-item" style="border: 3px solid #ff6b35;">
-                        <div class="hourly-time">Now</div>
-                        <div class="hourly-icon">⛅</div>
-                        <div class="hourly-temp">72°</div>
-                        <div class="hourly-precipitation">5% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">1 PM</div>
-                        <div class="hourly-icon">☀️</div>
-                        <div class="hourly-temp">75°</div>
-                        <div class="hourly-precipitation">0% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">2 PM</div>
-                        <div class="hourly-icon">☀️</div>
-                        <div class="hourly-temp">77°</div>
-                        <div class="hourly-precipitation">0% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">3 PM</div>
-                        <div class="hourly-icon">⛅</div>
-                        <div class="hourly-temp">78°</div>
-                        <div class="hourly-precipitation">15% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">4 PM</div>
-                        <div class="hourly-icon">🌧️</div>
-                        <div class="hourly-temp">76°</div>
-                        <div class="hourly-precipitation">70% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">5 PM</div>
-                        <div class="hourly-icon">🌧️</div>
-                        <div class="hourly-temp">74°</div>
-                        <div class="hourly-precipitation">85% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">6 PM</div>
-                        <div class="hourly-icon">🌧️</div>
-                        <div class="hourly-temp">72°</div>
-                        <div class="hourly-precipitation">80% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">7 PM</div>
-                        <div class="hourly-icon">⛅</div>
-                        <div class="hourly-temp">70°</div>
-                        <div class="hourly-precipitation">40% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">8 PM</div>
-                        <div class="hourly-icon">⛅</div>
-                        <div class="hourly-temp">69°</div>
-                        <div class="hourly-precipitation">20% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">9 PM</div>
-                        <div class="hourly-icon">🌙</div>
-                        <div class="hourly-temp">67°</div>
-                        <div class="hourly-precipitation">10% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">10 PM</div>
-                        <div class="hourly-icon">🌙</div>
-                        <div class="hourly-temp">65°</div>
-                        <div class="hourly-precipitation">5% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">11 PM</div>
-                        <div class="hourly-icon">🌙</div>
-                        <div class="hourly-temp">64°</div>
-                        <div class="hourly-precipitation">0% rain</div>
-                    </div>
-                    <div class="hourly-item">
-                        <div class="hourly-time">12 AM</div>
-                        <div class="hourly-icon">🌙</div>
-                        <div class="hourly-temp">62°</div>
-                        <div class="hourly-precipitation">0% rain</div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="weather-section">
             <h3 class="section-title">7-Day Weather Forecast</h3>
@@ -917,5 +769,20 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    
+    <!-- Backup chart initialization -->
+    <script>
+        // Backup initialization for chart
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (typeof hourlyChart === 'undefined' || !hourlyChart) {
+                    console.log('Attempting backup chart initialization');
+                    if (typeof initializeHourlyChart === 'function') {
+                        initializeHourlyChart();
+                    }
+                }
+            }, 1000);
+        });
+    </script>
 </body>
 </html>

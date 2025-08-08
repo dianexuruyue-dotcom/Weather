@@ -1,21 +1,249 @@
 // Weather App - Main JavaScript Functions
 
-// Search functionality
-document.querySelector('.search-box').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        searchWeather();
-    }
-});
+// Auto location detection on page load
+let userLocation = {
+    city: 'New York',
+    country: 'NY',
+    lat: 40.7128,
+    lon: -74.0060
+};
 
-document.querySelector('.search-btn').addEventListener('click', searchWeather);
+// Hourly weather data
+const hourlyWeatherData = {
+    labels: ['6hrs ago', '5hrs ago', '4hrs ago', '3hrs ago', '2hrs ago', '1hr ago', 'Now', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM', '12AM'],
+    temperature: [68, 69, 70, 71, 71, 72, 72, 75, 77, 78, 76, 74, 72, 70, 69, 67, 65, 64, 62],
+    precipitation: [0, 0, 5, 10, 15, 10, 5, 0, 0, 15, 70, 85, 80, 40, 20, 10, 5, 0, 0]
+};
 
-function searchWeather() {
-    const query = document.querySelector('.search-box').value;
-    if (query.trim()) {
-        // Simulate search - in real app, this would call weather API
-        document.querySelector('.location-name').textContent = query;
-        console.log('Searching weather for:', query);
+let hourlyChart = null;
+
+// Get user's IP-based location
+async function getUserLocationByIP() {
+    try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        
+        userLocation = {
+            city: data.city || 'Unknown',
+            country: data.region || data.country_name || 'Unknown',
+            lat: data.latitude || 0,
+            lon: data.longitude || 0
+        };
+        
+        updateLocationDisplay();
+        console.log('User location detected:', userLocation);
+    } catch (error) {
+        console.warn('Could not detect location via IP, using default:', error);
+        // Fallback to browser geolocation API
+        getBrowserLocation();
     }
+}
+
+// Fallback: Browser geolocation API
+function getBrowserLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                try {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    
+                    // Reverse geocoding to get city name
+                    const response = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=demo`);
+                    const data = await response.json();
+                    
+                    if (data.length > 0) {
+                        userLocation = {
+                            city: data[0].name,
+                            country: data[0].state || data[0].country,
+                            lat: lat,
+                            lon: lon
+                        };
+                        updateLocationDisplay();
+                    }
+                } catch (error) {
+                    console.warn('Could not reverse geocode coordinates:', error);
+                }
+            },
+            (error) => {
+                console.warn('Geolocation permission denied or failed:', error);
+            }
+        );
+    }
+}
+
+// Update the location display on the page
+function updateLocationDisplay() {
+    const locationLoadingElement = document.querySelector('.location-loading');
+    const locationTextElement = document.querySelector('.location-text');
+    
+    if (locationLoadingElement && locationTextElement) {
+        locationLoadingElement.style.display = 'none';
+        locationTextElement.style.display = 'inline';
+        locationTextElement.textContent = `${userLocation.city}, ${userLocation.country}`;
+    }
+    
+    // Fallback for older structure
+    const locationElement = document.querySelector('.location-name');
+    if (locationElement && !locationLoadingElement) {
+        locationElement.textContent = `${userLocation.city}, ${userLocation.country}`;
+    }
+}
+
+// Initialize hourly weather chart
+function initializeHourlyChart() {
+    const canvas = document.getElementById('hourlyWeatherChart');
+    if (!canvas) {
+        console.error('Canvas element not found');
+        return;
+    }
+    
+    // Check if Chart.js is available
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js library not loaded');
+        return;
+    }
+    
+    const ctx = canvas.getContext('2d');
+    
+    try {
+        hourlyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: hourlyWeatherData.labels,
+                datasets: [{
+                    label: 'Temperature (°F)',
+                    data: hourlyWeatherData.temperature,
+                    borderColor: '#ff6b35',
+                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#ff6b35',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        borderColor: '#ff6b35',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        displayColors: false,
+                        callbacks: {
+                            title: function(context) {
+                                return context[0].label;
+                            },
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + (context.dataset.label.includes('Temperature') ? '°F' : '%');
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#666',
+                            callback: function(value) {
+                                return value + '°F';
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#666',
+                            maxRotation: 45
+                        }
+                    }
+                }
+            }
+        });
+        console.log('Chart initialized successfully');
+    } catch (error) {
+        console.error('Error initializing chart:', error);
+    }
+}
+
+// Switch chart data
+function switchChartData(chartType) {
+    if (!hourlyChart) return;
+    
+    const chartBtns = document.querySelectorAll('.chart-btn');
+    chartBtns.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`[data-chart="${chartType}"]`).classList.add('active');
+    
+    if (chartType === 'temperature') {
+        hourlyChart.data.datasets[0] = {
+            label: 'Temperature (°F)',
+            data: hourlyWeatherData.temperature,
+            borderColor: '#ff6b35',
+            backgroundColor: 'rgba(255, 107, 53, 0.1)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: '#ff6b35',
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+            pointRadius: 6,
+            pointHoverRadius: 8
+        };
+        hourlyChart.options.scales.y.ticks.callback = function(value) {
+            return value + '°F';
+        };
+    } else if (chartType === 'precipitation') {
+        hourlyChart.data.datasets[0] = {
+            label: 'Precipitation (%)',
+            data: hourlyWeatherData.precipitation,
+            borderColor: '#74b9ff',
+            backgroundColor: 'rgba(116, 185, 255, 0.1)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: '#74b9ff',
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+            pointRadius: 6,
+            pointHoverRadius: 8
+        };
+        hourlyChart.options.scales.y.ticks.callback = function(value) {
+            return value + '%';
+        };
+    }
+    
+    hourlyChart.update('active');
+}
+
+// Initialize chart controls
+function initializeChartControls() {
+    const chartBtns = document.querySelectorAll('.chart-btn');
+    chartBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const chartType = this.getAttribute('data-chart');
+            switchChartData(chartType);
+        });
+    });
 }
 
 // Extended forecast toggle
@@ -105,33 +333,6 @@ document.head.appendChild(style);
 window.addEventListener('load', () => {
     setTimeout(addWeatherAnimation, 1000);
 });
-
-// Analytics Tab functionality
-function initializeAnalyticsTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const chartContainers = document.querySelectorAll('.chart-container');
-    
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const targetTab = this.getAttribute('data-tab');
-            
-            // Remove active class from all tabs and containers
-            tabBtns.forEach(tab => tab.classList.remove('active'));
-            chartContainers.forEach(container => container.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-            
-            // Show corresponding chart container
-            const targetContainer = document.getElementById(`${targetTab}-chart`);
-            if (targetContainer) {
-                targetContainer.classList.add('active');
-            }
-            
-            console.log(`Analytics tab switched to: ${targetTab}`);
-        });
-    });
-}
 
 // Floating Action Buttons functionality
 function initializeFloatingActions() {
@@ -383,11 +584,30 @@ function showNotification(message) {
 // Popular cities functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
-    initializeAnalyticsTabs();
     initializeFloatingActions();
     initializeSettingsSidebar();
     initializeNavigation();
     initializeQuickActions();
+    initializeChartControls();
+    
+    // Auto-detect user location on page load
+    getUserLocationByIP();
+    
+    // Wait for Chart.js to load before initializing chart
+    if (typeof Chart !== 'undefined') {
+        setTimeout(() => {
+            initializeHourlyChart();
+        }, 500);
+    } else {
+        // If Chart.js is not loaded, wait a bit longer
+        setTimeout(() => {
+            if (typeof Chart !== 'undefined') {
+                initializeHourlyChart();
+            } else {
+                console.error('Chart.js failed to load');
+            }
+        }, 2000);
+    }
     
     const cityItems = document.querySelectorAll('.city-item');
     
@@ -446,11 +666,6 @@ function updateMainWeather(city, country, temp, condition, icon) {
         conditionElement.textContent = condition;
     }
     
-    // Update search box placeholder or value to reflect the selected city
-    const searchBox = document.querySelector('.search-box');
-    if (searchBox) {
-        searchBox.value = city;
-    }
     
     // Add a subtle animation to indicate the change
     const currentWeatherSection = document.querySelector('.current-weather');

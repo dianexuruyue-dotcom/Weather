@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="天气雷达图 - 实时天气雷达云图，精准降水监测，查看雷达回波图、降雨预报、风暴追踪。专业气象雷达图像服务。">
+    <meta name="keywords" content="天气雷达图,气象雷达,雷达云图,降水雷达,雷达回波,实时雷达,风暴雷达,降雨监测,雷达图像">
+    <meta name="author" content="Weather App">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="天气雷达图 - 实时气象雷达云图监测">
+    <meta property="og:description" content="专业天气雷达图服务，实时显示降水云图、雷达回波、风暴动态。精准的气象雷达监测系统。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://weather.com/weather-radar-map">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://weather.com/weather-radar-map">
+    
+    <!-- Breadcrumb structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://weather.com"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "天气雷达图"
+        }]
+    }
+    </script>
+    
+    <!-- Weather radar service structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "天气雷达图",
+        "description": "实时天气雷达监测服务",
+        "provider": {
+            "@type": "Organization",
+            "name": "Weather App"
+        },
+        "serviceType": "气象雷达监测"
+    }
+    </script>
+    
+    <title>天气雷达图 - 实时气象雷达云图 | 降水监测雷达回波图</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <a href="index.html" class="home-link">
+                    <div class="weather-logo">
+                        <div class="sun-icon"></div>
+                        <div class="cloud-icon"></div>
+                    </div>
+                    <h1 class="brand-name">Weather</h1>
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="搜索地区雷达图" aria-label="搜索地区天气雷达图">
+                <button class="search-btn" aria-label="搜索">🔍</button>
+            </div>
+            
+            <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+                <a href="index.html" class="nav-item">
+                    <div class="nav-icon">🏠</div>
+                    <span>Home</span>
+                </a>
+                <a href="7-day-weather-forecast.html" class="nav-item">
+                    <div class="nav-icon">📅</div>
+                    <span>7-Day</span>
+                </a>
+                <a href="air-quality-index.html" class="nav-item">
+                    <div class="nav-icon">🌬️</div>
+                    <span>Air Quality</span>
+                </a>
+                <a href="uv-index.html" class="nav-item">
+                    <div class="nav-icon">☀️</div>
+                    <span>UV Index</span>
+                </a>
+                <a href="weather-alert.html" class="nav-item">
+                    <div class="nav-icon">⚠️</div>
+                    <span>Alerts</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <div class="nav-icon">ℹ️</div>
+                    <span>About</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="面包屑导航">
+        <div class="container">
+            <ol>
+                <li><a href="index.html">首页</a></li>
+                <li aria-current="page">天气雷达图</li>
+            </ol>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1>天气雷达图</h1>
+            <p class="page-subtitle">实时气象雷达监测，精准显示降水云图、雷达回波、风暴动态，专业的天气雷达图像服务</p>
+        </section>
+
+        <!-- Radar Control Panel -->
+        <section class="weather-section" role="region" aria-labelledby="radar-controls-title">
+            <h2 id="radar-controls-title" class="sr-only">雷达图控制面板</h2>
+            
+            <div class="radar-controls">
+                <div class="control-group">
+                    <label>雷达类型</label>
+                    <div class="radar-type-tabs">
+                        <button class="radar-tab active" data-type="precipitation">降水雷达</button>
+                        <button class="radar-tab" data-type="cloud">云图雷达</button>
+                        <button class="radar-tab" data-type="composite">复合雷达</button>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label>时间范围</label>
+                    <div class="time-controls">
+                        <button class="time-btn" data-time="current">实时</button>
+                        <button class="time-btn" data-time="1hour">过去1小时</button>
+                        <button class="time-btn" data-time="3hour">过去3小时</button>
+                        <button class="time-btn" data-time="forecast">未来预报</button>
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label>显示选项</label>
+                    <div class="display-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked> 城市标注
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox"> 高速公路
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked> 雷达站点
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radar Map Display -->
+        <section class="weather-section radar-map-section" role="main" aria-labelledby="radar-map-title">
+            <h2 id="radar-map-title">实时天气雷达图</h2>
+            <div class="radar-info">
+                <div class="radar-status">
+                    <span class="status-dot active"></span>
+                    <span>雷达正常运行</span>
+                    <span class="update-time">更新时间: 2024-01-01 10:25</span>
+                </div>
+                
+                <div class="current-location">
+                    <span class="location-icon">📍</span>
+                    <span>当前位置: 北京市</span>
+                </div>
+            </div>
+            
+            <div class="radar-map-container">
+                <div class="radar-map-placeholder">
+                    <div class="map-loading">
+                        <div class="radar-icon">📡</div>
+                        <h3>天气雷达图</h3>
+                        <p>实时降水雷达监测</p>
+                        <div class="map-features">
+                            <span>✓ 高精度雷达回波</span>
+                            <span>✓ 实时降水强度</span>
+                            <span>✓ 风暴路径追踪</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Radar Legend -->
+                <div class="radar-legend">
+                    <h3>降水强度图例</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #cccccc;"></div>
+                            <span>无降水</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #00ff00;"></div>
+                            <span>小雨 (0-2mm/h)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ffff00;"></div>
+                            <span>中雨 (2-5mm/h)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff8c00;"></div>
+                            <span>大雨 (5-10mm/h)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff0000;"></div>
+                            <span>暴雨 (>10mm/h)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animation Controls -->
+            <div class="animation-controls">
+                <button class="anim-btn" id="playBtn">▶️ 播放</button>
+                <button class="anim-btn" id="pauseBtn">⏸️ 暂停</button>
+                <div class="time-slider">
+                    <input type="range" min="0" max="100" value="100" class="slider">
+                    <div class="time-labels">
+                        <span>3小时前</span>
+                        <span>现在</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radar Analysis -->
+        <section class="weather-section" role="region" aria-labelledby="radar-analysis-title">
+            <h2 id="radar-analysis-title">雷达图分析</h2>
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <div class="analysis-icon">🌧️</div>
+                    <h3>当前降水状况</h3>
+                    <div class="analysis-value">中等强度降水</div>
+                    <p>雷达显示北京西南部有中等强度降水云团，正向东北方向移动，预计30分钟后影响市区。</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">📊</div>
+                    <h3>回波强度</h3>
+                    <div class="analysis-value">35-45 dBZ</div>
+                    <p>主要回波强度在35-45分贝之间，对应中到大雨级别，局部区域可能达到暴雨强度。</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">🎯</div>
+                    <h3>移动方向</h3>
+                    <div class="analysis-value">西南→东北</div>
+                    <p>降水云团以每小时20公里速度向东北方向移动，预计1-2小时内通过本地区。</p>
+                </div>
+                
+                <div class="analysis-card">
+                    <div class="analysis-icon">⏱️</div>
+                    <h3>持续时间</h3>
+                    <div class="analysis-value">2-3小时</div>
+                    <p>根据雷达回波分析，本次降水过程预计持续2-3小时，降水量累计10-20毫米。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radar Stations -->
+        <section class="weather-section" role="region" aria-labelledby="radar-stations-title">
+            <h2 id="radar-stations-title">雷达站点信息</h2>
+            <div class="stations-grid">
+                <div class="station-card">
+                    <div class="station-header">
+                        <h3>北京雷达站</h3>
+                        <div class="station-status online">在线</div>
+                    </div>
+                    <div class="station-info">
+                        <div class="info-row">
+                            <span>位置:</span>
+                            <span>北京市昌平区</span>
+                        </div>
+                        <div class="info-row">
+                            <span>频率:</span>
+                            <span>C波段 5.6GHz</span>
+                        </div>
+                        <div class="info-row">
+                            <span>探测范围:</span>
+                            <span>半径230公里</span>
+                        </div>
+                        <div class="info-row">
+                            <span>更新频率:</span>
+                            <span>每6分钟</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="station-card">
+                    <div class="station-header">
+                        <h3>天津雷达站</h3>
+                        <div class="station-status online">在线</div>
+                    </div>
+                    <div class="station-info">
+                        <div class="info-row">
+                            <span>位置:</span>
+                            <span>天津市宝坻区</span>
+                        </div>
+                        <div class="info-row">
+                            <span>频率:</span>
+                            <span>S波段 2.8GHz</span>
+                        </div>
+                        <div class="info-row">
+                            <span>探测范围:</span>
+                            <span>半径460公里</span>
+                        </div>
+                        <div class="info-row">
+                            <span>更新频率:</span>
+                            <span>每6分钟</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="station-card">
+                    <div class="station-header">
+                        <h3>石家庄雷达站</h3>
+                        <div class="station-status maintenance">维护中</div>
+                    </div>
+                    <div class="station-info">
+                        <div class="info-row">
+                            <span>位置:</span>
+                            <span>河北省石家庄市</span>
+                        </div>
+                        <div class="info-row">
+                            <span>频率:</span>
+                            <span>C波段 5.6GHz</span>
+                        </div>
+                        <div class="info-row">
+                            <span>探测范围:</span>
+                            <span>半径230公里</span>
+                        </div>
+                        <div class="info-row">
+                            <span>预计恢复:</span>
+                            <span>2小时后</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radar Alerts -->
+        <section class="weather-section" role="region" aria-labelledby="radar-alerts-title">
+            <h2 id="radar-alerts-title">雷达监测预警</h2>
+            <div class="alerts-container">
+                <div class="alert-item warning">
+                    <div class="alert-header">
+                        <div class="alert-icon">⚠️</div>
+                        <div class="alert-title">强降水预警</div>
+                        <div class="alert-level">黄色预警</div>
+                    </div>
+                    <div class="alert-content">
+                        <p>雷达监测显示，未来2小时内北京西南部地区将出现强降水，小时雨量可达15-25毫米，请注意防范。</p>
+                        <div class="alert-time">发布时间: 10:30 | 有效期: 3小时</div>
+                    </div>
+                </div>
+                
+                <div class="alert-item info">
+                    <div class="alert-header">
+                        <div class="alert-icon">ℹ️</div>
+                        <div class="alert-title">雷达站维护通知</div>
+                        <div class="alert-level">信息</div>
+                    </div>
+                    <div class="alert-content">
+                        <p>石家庄雷达站正在进行例行维护，预计12:00恢复正常运行。期间该区域雷达图像可能有延迟。</p>
+                        <div class="alert-time">发布时间: 09:45</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Weather Services -->
+        <section class="weather-section" role="region" aria-labelledby="related-radar-title">
+            <h2 id="related-radar-title">相关天气服务</h2>
+            <div class="related-links">
+                <a href="weather-alert.html" class="related-card">
+                    <div class="related-icon">⚠️</div>
+                    <h3>天气预警</h3>
+                    <p>获取最新气象预警信息</p>
+                </a>
+                <a href="typhoon-track.html" class="related-card">
+                    <div class="related-icon">🌀</div>
+                    <h3>台风路径</h3>
+                    <p>实时台风路径追踪</p>
+                </a>
+                <a href="hourly-weather-forecast.html" class="related-card">
+                    <div class="related-icon">🕐</div>
+                    <h3>小时天气预报</h3>
+                    <p>24小时逐时天气预报</p>
+                </a>
+                <a href="climate-change.html" class="related-card">
+                    <div class="related-icon">🌍</div>
+                    <h3>气候变化</h3>
+                    <p>气候趋势分析与监测</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="privacy-policy.html">隐私政策</a>
+                <a href="terms-of-use.html">使用条款</a>
+                <a href="today-weather-forecast.html">今日天气</a>
+                <a href="7-day-weather-forecast.html">7天预报</a>
+            </div>
+            <div class="copyright">
+                © 2024 Weather App. 天气雷达图专业服务 - 精准气象雷达监测数据
+            </div>
+        </div>
+    </nav>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
